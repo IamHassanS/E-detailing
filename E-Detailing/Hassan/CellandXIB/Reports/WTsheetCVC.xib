@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WTsheetCVC" id="xKF-QC-BNu" userLabel="WTsheetCVC" customClass="WTsheetCVC" customModule="E_Detailing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="611" height="122"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iVv-AO-sLD">
+                <rect key="frame" x="0.0" y="0.0" width="611" height="122"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bze-qf-hOr">
+                        <rect key="frame" x="-5.5" y="3" width="622" height="116"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EY5-iY-EcN">
+                                <rect key="frame" x="0.0" y="0.0" width="622" height="116"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aE2-iD-n1I">
+                                        <rect key="frame" x="15.5" y="3" width="591" height="110"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XsA-bA-TMX">
+                                                <rect key="frame" x="0.0" y="0.0" width="197" height="110"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GM9-h8-GEi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="55"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Field Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqf-bu-fpT">
+                                                        <rect key="frame" x="0.0" y="55" width="197" height="55"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="n1v-OQ-7JA">
+                                                <rect key="frame" x="197" y="0.0" width="197" height="110"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cluster" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUq-Rb-3e6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="55"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nandanam, Alwarpet, Velechery" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vq-4x-wMN">
+                                                        <rect key="frame" x="0.0" y="55" width="197" height="55"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hve-Kc-55h">
+                                                <rect key="frame" x="394" y="0.0" width="197" height="110"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HQ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3S9-eY-F6H">
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="55"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Siva kumar - HQ - designation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovr-B4-585">
+                                                        <rect key="frame" x="0.0" y="55" width="197" height="55"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOR-3A-a4d">
+                                        <rect key="frame" x="0.0" y="114" width="622" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="UyM-Xr-Csz"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="aE2-iD-n1I" firstAttribute="width" secondItem="EY5-iY-EcN" secondAttribute="width" multiplier="0.95" id="4br-gr-9rB"/>
+                                    <constraint firstItem="aE2-iD-n1I" firstAttribute="centerX" secondItem="EY5-iY-EcN" secondAttribute="centerX" id="Ece-NB-AVz"/>
+                                    <constraint firstItem="aE2-iD-n1I" firstAttribute="height" secondItem="EY5-iY-EcN" secondAttribute="height" multiplier="0.95" id="Ty9-3N-9zV"/>
+                                    <constraint firstAttribute="bottom" secondItem="bOR-3A-a4d" secondAttribute="bottom" constant="1" id="jOP-u1-rXm"/>
+                                    <constraint firstItem="bOR-3A-a4d" firstAttribute="centerX" secondItem="EY5-iY-EcN" secondAttribute="centerX" id="l3y-UI-bha"/>
+                                    <constraint firstItem="aE2-iD-n1I" firstAttribute="centerY" secondItem="EY5-iY-EcN" secondAttribute="centerY" id="lfW-ZG-D2o"/>
+                                    <constraint firstItem="bOR-3A-a4d" firstAttribute="width" secondItem="EY5-iY-EcN" secondAttribute="width" id="p8M-ep-TZ3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EY5-iY-EcN" firstAttribute="centerY" secondItem="Bze-qf-hOr" secondAttribute="centerY" id="GCF-uQ-flh"/>
+                            <constraint firstItem="EY5-iY-EcN" firstAttribute="width" secondItem="Bze-qf-hOr" secondAttribute="width" id="R0Y-dL-ZgO"/>
+                            <constraint firstItem="EY5-iY-EcN" firstAttribute="height" secondItem="Bze-qf-hOr" secondAttribute="height" id="fRK-qy-gWY"/>
+                            <constraint firstItem="EY5-iY-EcN" firstAttribute="centerX" secondItem="Bze-qf-hOr" secondAttribute="centerX" id="vQs-Pe-dBe"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Bze-qf-hOr" firstAttribute="centerY" secondItem="iVv-AO-sLD" secondAttribute="centerY" id="3WB-uM-PPd"/>
+                    <constraint firstItem="Bze-qf-hOr" firstAttribute="height" secondItem="iVv-AO-sLD" secondAttribute="height" multiplier="0.95" id="RFj-H2-YQe"/>
+                    <constraint firstItem="Bze-qf-hOr" firstAttribute="centerX" secondItem="iVv-AO-sLD" secondAttribute="centerX" id="SsB-wQ-ZUB"/>
+                    <constraint firstItem="Bze-qf-hOr" firstAttribute="width" secondItem="iVv-AO-sLD" secondAttribute="width" multiplier="1.018" id="nOA-8m-8LK"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="611" height="122"/>
+            <connections>
+                <outlet property="HQ" destination="3S9-eY-F6H" id="Gg7-dk-TcD"/>
+                <outlet property="HQdesc" destination="ovr-B4-585" id="9xS-Dd-sK0"/>
+                <outlet property="cluster" destination="tUq-Rb-3e6" id="HWI-HY-KOS"/>
+                <outlet property="clusterDesc" destination="6vq-4x-wMN" id="TQG-aY-QMf"/>
+                <outlet property="seperatorView" destination="bOR-3A-a4d" id="thc-Bx-nbn"/>
+                <outlet property="workType" destination="GM9-h8-GEi" id="Nhy-Sd-KBH"/>
+                <outlet property="workTypeDesc" destination="Qqf-bu-fpT" id="ILg-V7-IhA"/>
+            </connections>
+            <point key="canvasLocation" x="222.80487804878049" y="115.93220338983052"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

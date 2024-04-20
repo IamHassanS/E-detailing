@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Satoshi-Medium.otf">
+            <string>Satoshi-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="57" id="rZo-jA-HhV" customClass="LeaveStatusCell" customModule="E_Detailing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="57"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rZo-jA-HhV" id="KBO-23-o40">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="57"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rcu-YQ-pZk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="57"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57A-Ii-sDo">
+                                <rect key="frame" x="15" y="15" width="44.5" height="18"/>
+                                <fontDescription key="fontDescription" name="Satoshi-Medium" family="Satoshi" pointSize="18"/>
+                                <color key="textColor" red="0.15686274510000001" green="0.1647058824" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oro-Ug-kQj">
+                                <rect key="frame" x="333.5" y="15" width="44.5" height="18"/>
+                                <fontDescription key="fontDescription" name="Satoshi-Medium" family="Satoshi" pointSize="18"/>
+                                <color key="textColor" red="0.15686274510000001" green="0.1647058824" blue="0.23529411759999999" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-4c-JXW">
+                                <rect key="frame" x="20" y="43" width="353" height="2"/>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.64705882349999999" blue="0.95686274510000002" alpha="0.50726924669999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="z3v-fz-fGQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.23921568630000001" green="0.64705882349999999" blue="0.95686274510000002" alpha="0.50726924668874174" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Q7b-4c-JXW" secondAttribute="trailing" constant="20" id="A5c-Pa-dNe"/>
+                            <constraint firstAttribute="bottom" secondItem="Q7b-4c-JXW" secondAttribute="bottom" constant="12" id="HNq-Gg-WET"/>
+                            <constraint firstItem="Q7b-4c-JXW" firstAttribute="leading" secondItem="rcu-YQ-pZk" secondAttribute="leading" constant="20" id="cHB-Uk-yHN"/>
+                            <constraint firstItem="Oro-Ug-kQj" firstAttribute="top" secondItem="rcu-YQ-pZk" secondAttribute="top" constant="15" id="eXg-Aj-l0L"/>
+                            <constraint firstAttribute="trailing" secondItem="Oro-Ug-kQj" secondAttribute="trailing" constant="15" id="k9m-kZ-BFj"/>
+                            <constraint firstItem="57A-Ii-sDo" firstAttribute="leading" secondItem="rcu-YQ-pZk" secondAttribute="leading" constant="15" id="oHW-3L-ElS"/>
+                            <constraint firstItem="Oro-Ug-kQj" firstAttribute="bottom" secondItem="57A-Ii-sDo" secondAttribute="bottom" id="tJ4-2P-wif"/>
+                            <constraint firstItem="57A-Ii-sDo" firstAttribute="top" secondItem="rcu-YQ-pZk" secondAttribute="top" constant="15" id="vDG-f7-eHa"/>
+                            <constraint firstItem="Q7b-4c-JXW" firstAttribute="top" secondItem="57A-Ii-sDo" secondAttribute="bottom" constant="10" id="zPh-Ai-6V4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="rcu-YQ-pZk" secondAttribute="bottom" id="5QX-xc-2Ng"/>
+                    <constraint firstItem="rcu-YQ-pZk" firstAttribute="top" secondItem="KBO-23-o40" secondAttribute="top" id="99C-TO-LRS"/>
+                    <constraint firstAttribute="trailing" secondItem="rcu-YQ-pZk" secondAttribute="trailing" id="XA7-5H-erh"/>
+                    <constraint firstItem="rcu-YQ-pZk" firstAttribute="leading" secondItem="KBO-23-o40" secondAttribute="leading" id="gd9-VN-frG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="lblDate" destination="57A-Ii-sDo" id="0h4-Tr-rAo"/>
+                <outlet property="lblDay" destination="Oro-Ug-kQj" id="6Ol-Dd-1cP"/>
+            </connections>
+            <point key="canvasLocation" x="154.7560975609756" y="-63.813559322033903"/>
+        </tableViewCell>
+    </objects>
+</document>

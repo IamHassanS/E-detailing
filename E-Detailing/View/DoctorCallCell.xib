@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Satoshi-Bold.otf">
+            <string>Satoshi-Bold</string>
+        </array>
+        <array key="Satoshi-Medium.otf">
+            <string>Satoshi-Medium</string>
+        </array>
+        <array key="Satoshi-Regular.otf">
+            <string>Satoshi-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="d4K-Fm-D6s" customClass="DoctorCallCell" customModule="E_Detailing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="243" height="188"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="njW-XC-fSa">
+                <rect key="frame" x="0.0" y="0.0" width="243" height="188"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RfQ-kG-uP6" customClass="ShadowView" customModule="E_Detailing" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="243" height="188"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDV-JO-jjV">
+                                <rect key="frame" x="10" y="0.0" width="223" height="3"/>
+                                <color key="backgroundColor" red="0.94509803921568625" green="0.32549019607843138" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="rug-b8-kXt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="xeJ-VL-mnt">
+                                <rect key="frame" x="12" y="8" width="219" height="160"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cV-R7-acg">
+                                        <rect key="frame" x="0.0" y="0.0" width="219" height="36"/>
+                                        <fontDescription key="fontDescription" name="Satoshi-Bold" family="Satoshi" pointSize="20"/>
+                                        <color key="textColor" red="0.15686274510000001" green="0.1647058824" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiK-cQ-VKY">
+                                        <rect key="frame" x="0.0" y="41" width="219" height="36.5"/>
+                                        <fontDescription key="fontDescription" name="Satoshi-Medium" family="Satoshi" pointSize="18"/>
+                                        <color key="textColor" red="0.15686274510000001" green="0.1647058824" blue="0.23529411759999999" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdZ-5C-kIa">
+                                        <rect key="frame" x="0.0" y="82.5" width="219" height="36"/>
+                                        <fontDescription key="fontDescription" name="Satoshi-Medium" family="Satoshi" pointSize="18"/>
+                                        <color key="textColor" red="0.15686274510000001" green="0.1647058824" blue="0.23529411759999999" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMg-Dg-SHr">
+                                        <rect key="frame" x="0.0" y="121" width="219" height="0.0"/>
+                                        <color key="backgroundColor" red="0.94509803920000002" green="0.32549019610000002" blue="0.43137254899999999" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Satoshi-Medium" family="Satoshi" pointSize="16"/>
+                                        <color key="textColor" red="0.94509803920000002" green="0.32549019610000002" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgK-Dc-bMp">
+                                        <rect key="frame" x="0.0" y="123.5" width="219" height="36.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cJ-qE-kbN" customClass="ShadowButton" customModule="E_Detailing" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="36.5"/>
+                                                <color key="backgroundColor" red="0.94509803921568625" green="0.32549019607843138" blue="0.43137254901960786" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Satoshi-Regular" family="Satoshi" pointSize="14"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" red="0.94509803921568625" green="0.32549019607843138" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="5cJ-qE-kbN" firstAttribute="top" secondItem="wgK-Dc-bMp" secondAttribute="top" id="1RU-Cb-kqp"/>
+                                            <constraint firstAttribute="bottom" secondItem="5cJ-qE-kbN" secondAttribute="bottom" id="H3C-0c-oRP"/>
+                                            <constraint firstItem="5cJ-qE-kbN" firstAttribute="leading" secondItem="wgK-Dc-bMp" secondAttribute="leading" id="oXx-yD-fXz"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DDV-JO-jjV" secondAttribute="trailing" constant="10" id="0MG-lF-5T0"/>
+                            <constraint firstItem="xeJ-VL-mnt" firstAttribute="top" secondItem="DDV-JO-jjV" secondAttribute="bottom" constant="5" id="D1v-FL-dhd"/>
+                            <constraint firstItem="xeJ-VL-mnt" firstAttribute="centerX" secondItem="RfQ-kG-uP6" secondAttribute="centerX" id="Grp-iF-CM3"/>
+                            <constraint firstItem="DDV-JO-jjV" firstAttribute="top" secondItem="RfQ-kG-uP6" secondAttribute="top" id="d1S-Xh-5KK"/>
+                            <constraint firstItem="xeJ-VL-mnt" firstAttribute="height" secondItem="RfQ-kG-uP6" secondAttribute="height" multiplier="0.85" id="pvb-Q3-GJS"/>
+                            <constraint firstItem="xeJ-VL-mnt" firstAttribute="width" secondItem="RfQ-kG-uP6" secondAttribute="width" multiplier="0.9" id="qVa-fW-wep"/>
+                            <constraint firstItem="DDV-JO-jjV" firstAttribute="leading" secondItem="RfQ-kG-uP6" secondAttribute="leading" constant="10" id="yfX-2g-Yl4"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="RfQ-kG-uP6" secondAttribute="trailing" id="31k-C0-jd1"/>
+                    <constraint firstItem="RfQ-kG-uP6" firstAttribute="leading" secondItem="njW-XC-fSa" secondAttribute="leading" id="5T4-xq-2qI"/>
+                    <constraint firstItem="RfQ-kG-uP6" firstAttribute="top" secondItem="njW-XC-fSa" secondAttribute="top" id="PWF-dN-V4b"/>
+                    <constraint firstAttribute="bottom" secondItem="RfQ-kG-uP6" secondAttribute="bottom" id="z9V-Qf-CHQ"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="243" height="188"/>
+            <connections>
+                <outlet property="btnTownName" destination="5cJ-qE-kbN" id="blz-GQ-Sfy"/>
+                <outlet property="lblCategory" destination="wiK-cQ-VKY" id="wRb-8H-x4N"/>
+                <outlet property="lblName" destination="6cV-R7-acg" id="Rvi-MA-thz"/>
+                <outlet property="lblSpecialty" destination="FdZ-5C-kIa" id="EyI-ro-4KL"/>
+                <outlet property="lblTownName" destination="MMg-Dg-SHr" id="mtm-sh-rku"/>
+            </connections>
+            <point key="canvasLocation" x="90.365853658536579" y="-49.322033898305087"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

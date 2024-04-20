@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReportsCVC" id="gTV-IL-0wX" customClass="ReportsCVC" customModule="E_Detailing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="736" height="62"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="736" height="62"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="112-Yz-bSn">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="62"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0At-5a-DV2">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="62"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="N4o-A7-wUg">
+                                        <rect key="frame" x="18.5" y="1.5" width="699" height="59"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ayD-zl-lYI">
+                                                <rect key="frame" x="0.0" y="0.0" width="699" height="59"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OverAll remarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEa-B2-utM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="699" height="29.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our product stands out on arrangements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Be-by-oSV">
+                                                        <rect key="frame" x="0.0" y="29.5" width="699" height="29.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OYN-ca-5bY">
+                                        <rect key="frame" x="0.0" y="60" width="736" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Lrf-Ms-8YE"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="N4o-A7-wUg" firstAttribute="height" secondItem="0At-5a-DV2" secondAttribute="height" multiplier="0.95" id="C1q-Qf-hNs"/>
+                                    <constraint firstItem="N4o-A7-wUg" firstAttribute="width" secondItem="0At-5a-DV2" secondAttribute="width" multiplier="0.95" id="CuE-zJ-CcB"/>
+                                    <constraint firstItem="OYN-ca-5bY" firstAttribute="width" secondItem="0At-5a-DV2" secondAttribute="width" id="Oyu-fW-8uz"/>
+                                    <constraint firstAttribute="bottom" secondItem="OYN-ca-5bY" secondAttribute="bottom" constant="1" id="QNo-wC-YlJ"/>
+                                    <constraint firstItem="OYN-ca-5bY" firstAttribute="centerX" secondItem="0At-5a-DV2" secondAttribute="centerX" id="eOR-pP-wlo"/>
+                                    <constraint firstItem="N4o-A7-wUg" firstAttribute="centerX" secondItem="0At-5a-DV2" secondAttribute="centerX" id="mvS-jw-yVz"/>
+                                    <constraint firstItem="N4o-A7-wUg" firstAttribute="centerY" secondItem="0At-5a-DV2" secondAttribute="centerY" id="tQE-uL-7uj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0At-5a-DV2" firstAttribute="centerX" secondItem="112-Yz-bSn" secondAttribute="centerX" id="3lZ-M7-vMt"/>
+                            <constraint firstItem="0At-5a-DV2" firstAttribute="height" secondItem="112-Yz-bSn" secondAttribute="height" id="Nk2-x5-5fn"/>
+                            <constraint firstItem="0At-5a-DV2" firstAttribute="centerY" secondItem="112-Yz-bSn" secondAttribute="centerY" id="Yb3-Pa-12K"/>
+                            <constraint firstItem="0At-5a-DV2" firstAttribute="width" secondItem="112-Yz-bSn" secondAttribute="width" id="o6B-mD-5Ss"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="112-Yz-bSn" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="ARB-M5-dqC"/>
+                <constraint firstItem="112-Yz-bSn" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="UcX-mG-zmx"/>
+                <constraint firstItem="112-Yz-bSn" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="cbm-vO-aoj"/>
+                <constraint firstItem="112-Yz-bSn" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="qe2-bE-AoW"/>
+            </constraints>
+            <size key="customSize" width="736" height="62"/>
+            <connections>
+                <outlet property="remarksDesc" destination="6Be-by-oSV" id="D0E-bO-fqA"/>
+                <outlet property="remarksTitle" destination="cEa-B2-utM" id="UpS-aB-nU3"/>
+                <outlet property="seperatorView" destination="OYN-ca-5bY" id="K53-8d-UQk"/>
+            </connections>
+            <point key="canvasLocation" x="338.78048780487802" y="-30"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

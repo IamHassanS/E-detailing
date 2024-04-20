@@ -1,0 +1,18 @@
+
+// MARK:  ---------- Keys and Identifiers ----------------
+USER_APP_NAME        = Enter your key APP_NAME  
+USER_BUNDLE_ID       = Enter your BUNDLE_ID
+GMSMapServicesAPIKey       = AIzaSyCOGVqC9Up95kQNvd_WWtBXI-YY1d7Y2Ng
+GMSServicesAPIKey   = AIzaSyCWeKbT2OcoH82bQJQJKqrHZ_MyLGijWM4
+
+// MARK:  ---------- Application Version and App URL ----------------
+USER_VERSION         = 1.0
+USER_BUILD           = 1.0
+APP_URL              = Enter your URL
+
+// MARK:  ---------- Social Login Credentials ----------------
+FBID                 = Enter your key
+GOOGLESIGNIN_KEY     = Enter your key
+REVERSEDCLIENT_ID    = Enter your key
+GOOGLE_APP_ID        = Enter your key
+GOOGLE_CLIENT_ID     = Enter your key

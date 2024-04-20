@@ -1,0 +1,6 @@
+framework module Pods_E_Detailing {
+  umbrella header "Pods-E-Detailing-umbrella.h"
+
+  export *
+  module * { export * }
+}
