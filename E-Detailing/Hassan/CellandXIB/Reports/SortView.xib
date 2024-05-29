@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SortVIew" customModule="E_Detailing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIQ-4l-v0C">
+                    <rect key="frame" x="20.5" y="29.5" width="779" height="1121"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ege-eK-Mtx">
+                    <rect key="frame" x="0.0" y="24" width="820" height="1136"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Ege-eK-Mtx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BBg-vI-Qf2"/>
+                <constraint firstItem="HIQ-4l-v0C" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.95" id="EHV-Zx-QTf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Ege-eK-Mtx" secondAttribute="bottom" id="EMB-iK-cgM"/>
+                <constraint firstItem="HIQ-4l-v0C" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.95" id="Ot3-qD-4cV"/>
+                <constraint firstItem="HIQ-4l-v0C" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tq3-cf-sw1"/>
+                <constraint firstItem="HIQ-4l-v0C" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="u2d-1G-Bxb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ege-eK-Mtx" secondAttribute="trailing" id="wE7-ke-1up"/>
+                <constraint firstItem="Ege-eK-Mtx" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="wVp-Wg-msF"/>
+            </constraints>
+            <point key="canvasLocation" x="-43" y="-33"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

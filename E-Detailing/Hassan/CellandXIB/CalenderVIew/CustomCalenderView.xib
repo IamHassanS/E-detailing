@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomCalenderView" customModule="E_Detailing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4wl-rG-Xrh">
+                    <rect key="frame" x="34" y="48.5" width="1298" height="931"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GF0-wb-OCr">
+                            <rect key="frame" x="0.0" y="0.0" width="1298" height="139.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8UZ-OT-xJ9">
+                                    <rect key="frame" x="0.0" y="0.0" width="259.5" height="139.5"/>
+                                    <color key="tintColor" red="0.15686274510000001" green="0.1647058824" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="chevron.backward" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium" weight="semibold"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="didTapPrevBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="b6Z-7C-cJq"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="September 2023" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwr-EC-bNC">
+                                    <rect key="frame" x="259.5" y="0.0" width="779" height="139.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMM-5O-0cc">
+                                    <rect key="frame" x="1038.5" y="0.0" width="259.5" height="139.5"/>
+                                    <color key="tintColor" red="0.15686274510000001" green="0.1647058824" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="chevron.right" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="didTapCalNextBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="dp7-Fx-ECI"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="vMM-5O-0cc" firstAttribute="width" secondItem="GF0-wb-OCr" secondAttribute="width" multiplier="0.2" id="b4I-LR-Vsr"/>
+                                <constraint firstItem="8UZ-OT-xJ9" firstAttribute="width" secondItem="GF0-wb-OCr" secondAttribute="width" multiplier="0.2" id="j05-Zh-WCn"/>
+                            </constraints>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQW-yO-hva" customClass="FSCalendar">
+                            <rect key="frame" x="0.0" y="139.5" width="1298" height="791.5"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="GF0-wb-OCr" firstAttribute="height" secondItem="4wl-rG-Xrh" secondAttribute="height" multiplier="0.15" id="m4z-yQ-WAL"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="4wl-rG-Xrh" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" multiplier="0.95" id="VAW-oF-1Ic"/>
+                <constraint firstItem="4wl-rG-Xrh" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="eow-ob-ap2"/>
+                <constraint firstItem="4wl-rG-Xrh" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="n9y-2Y-7yv"/>
+                <constraint firstItem="4wl-rG-Xrh" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.95" id="u8M-9U-8Im"/>
+            </constraints>
+            <connections>
+                <outlet property="btnNext" destination="vMM-5O-0cc" id="yDQ-Uw-bBa"/>
+                <outlet property="dateInfoLbl" destination="wwr-EC-bNC" id="UHX-Hs-T92"/>
+                <outlet property="prevBtn" destination="8UZ-OT-xJ9" id="aDx-Lj-pbC"/>
+                <outlet property="viewCalendar" destination="lQW-yO-hva" id="NLZ-3R-aGX"/>
+            </connections>
+            <point key="canvasLocation" x="-4" y="-32"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

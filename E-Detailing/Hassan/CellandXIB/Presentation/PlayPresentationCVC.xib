@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlayPresentationCVC" id="gTV-IL-0wX" customClass="PlayPresentationCVC" customModule="E_Detailing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="251" height="151"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="251" height="151"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5d-po-yes">
+                        <rect key="frame" x="50.5" y="25.5" width="150" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yk9-Cf-7rS">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alQ-r7-c05">
+                                <rect key="frame" x="57.5" y="32.5" width="35" height="35"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PgS-1j-il4">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mGT-6a-fOz">
+                                            <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <blurEffect style="regular"/>
+                                    </visualEffectView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pdf" translatesAutoresizingMaskIntoConstraints="NO" id="jXE-gh-FLQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="jXE-gh-FLQ" firstAttribute="top" secondItem="alQ-r7-c05" secondAttribute="top" id="6c6-ej-ZVG"/>
+                                    <constraint firstItem="jXE-gh-FLQ" firstAttribute="leading" secondItem="alQ-r7-c05" secondAttribute="leading" id="KVk-91-J1Q"/>
+                                    <constraint firstItem="PgS-1j-il4" firstAttribute="top" secondItem="alQ-r7-c05" secondAttribute="top" id="Kk9-iO-n7E"/>
+                                    <constraint firstItem="PgS-1j-il4" firstAttribute="leading" secondItem="alQ-r7-c05" secondAttribute="leading" id="Yor-Z1-zHf"/>
+                                    <constraint firstAttribute="bottom" secondItem="jXE-gh-FLQ" secondAttribute="bottom" id="cSE-SF-FnB"/>
+                                    <constraint firstAttribute="height" constant="35" id="fC7-y6-RAb"/>
+                                    <constraint firstAttribute="trailing" secondItem="jXE-gh-FLQ" secondAttribute="trailing" id="kv9-XX-cuD"/>
+                                    <constraint firstAttribute="bottom" secondItem="PgS-1j-il4" secondAttribute="bottom" id="s2W-Px-qvt"/>
+                                    <constraint firstAttribute="trailing" secondItem="PgS-1j-il4" secondAttribute="trailing" id="tij-SV-e0U"/>
+                                    <constraint firstAttribute="width" constant="35" id="wDL-Fo-v3D"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="20y-Je-hoT"/>
+                            <constraint firstItem="yk9-Cf-7rS" firstAttribute="leading" secondItem="F5d-po-yes" secondAttribute="leading" id="3iG-uN-xi4"/>
+                            <constraint firstItem="alQ-r7-c05" firstAttribute="centerX" secondItem="F5d-po-yes" secondAttribute="centerX" id="Ep0-ub-Bhn"/>
+                            <constraint firstItem="yk9-Cf-7rS" firstAttribute="top" secondItem="F5d-po-yes" secondAttribute="top" id="RjV-We-yB2"/>
+                            <constraint firstAttribute="height" constant="100" id="aI9-2F-VAj"/>
+                            <constraint firstAttribute="bottom" secondItem="yk9-Cf-7rS" secondAttribute="bottom" id="bRR-54-sUX"/>
+                            <constraint firstItem="alQ-r7-c05" firstAttribute="centerY" secondItem="F5d-po-yes" secondAttribute="centerY" id="k94-WT-LXM"/>
+                            <constraint firstAttribute="trailing" secondItem="yk9-Cf-7rS" secondAttribute="trailing" id="wy6-zi-GUY"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="F5d-po-yes" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="VDs-AR-8rA"/>
+                <constraint firstItem="F5d-po-yes" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="bGX-MR-fBr"/>
+            </constraints>
+            <size key="customSize" width="251" height="151"/>
+            <connections>
+                <outlet property="formatIV" destination="jXE-gh-FLQ" id="1Ke-my-oQr"/>
+                <outlet property="formatVIew" destination="alQ-r7-c05" id="yDA-xx-b6A"/>
+                <outlet property="holderIV" destination="F5d-po-yes" id="mRh-jS-0Vm"/>
+                <outlet property="holderViewHeight" destination="aI9-2F-VAj" id="gMm-jH-6ky"/>
+                <outlet property="holderViewWidth" destination="20y-Je-hoT" id="RGb-xt-Ig7"/>
+                <outlet property="presentationIV" destination="yk9-Cf-7rS" id="3XZ-ZU-8qS"/>
+            </connections>
+            <point key="canvasLocation" x="72.073170731707322" y="30.762711864406782"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="pdf" width="100" height="100"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

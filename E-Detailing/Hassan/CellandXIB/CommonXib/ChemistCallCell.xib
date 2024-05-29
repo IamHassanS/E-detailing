@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Satoshi-Bold.otf">
+            <string>Satoshi-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="j4n-NL-eGf">
+            <rect key="frame" x="0.0" y="0.0" width="241" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="t2i-aR-EZe">
+                <rect key="frame" x="0.0" y="0.0" width="241" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ts8-Io-1Lb" customClass="ShadowView" customModule="E_Detailing" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="241" height="100"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Siv-Qr-TEK">
+                                <rect key="frame" x="10" y="0.0" width="221" height="3"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.32549019610000002" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="WH1-W2-CKN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pb-V0-9gc">
+                                <rect key="frame" x="10" y="18" width="221" height="25"/>
+                                <fontDescription key="fontDescription" name="Satoshi-Bold" family="Satoshi" pointSize="20"/>
+                                <color key="textColor" red="0.15686274510000001" green="0.1647058824" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EW-cj-LQr" customClass="ShadowButton" customModule="E_Detailing" customModuleProvider="target">
+                                <rect key="frame" x="10" y="63" width="54" height="92"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.32549019610000002" blue="0.43137254899999999" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.94509803920000002" green="0.32549019610000002" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="5EW-cj-LQr" secondAttribute="bottom" constant="10" id="7sX-pD-AkH"/>
+                            <constraint firstItem="5Pb-V0-9gc" firstAttribute="top" secondItem="Siv-Qr-TEK" secondAttribute="bottom" constant="15" id="BPZ-oh-QRG"/>
+                            <constraint firstAttribute="trailing" secondItem="Siv-Qr-TEK" secondAttribute="trailing" constant="10" id="F7O-cK-pVV"/>
+                            <constraint firstItem="5EW-cj-LQr" firstAttribute="leading" secondItem="Ts8-Io-1Lb" secondAttribute="leading" constant="10" id="Jmg-G8-IzC"/>
+                            <constraint firstItem="5Pb-V0-9gc" firstAttribute="leading" secondItem="Ts8-Io-1Lb" secondAttribute="leading" constant="10" id="PDh-6l-jo7"/>
+                            <constraint firstItem="Siv-Qr-TEK" firstAttribute="top" secondItem="Ts8-Io-1Lb" secondAttribute="top" id="PyW-q8-ETr"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5EW-cj-LQr" secondAttribute="trailing" constant="15" id="Qj3-Wj-C7d"/>
+                            <constraint firstAttribute="trailing" secondItem="5Pb-V0-9gc" secondAttribute="trailing" constant="10" id="RnO-P1-CHk"/>
+                            <constraint firstItem="Siv-Qr-TEK" firstAttribute="leading" secondItem="Ts8-Io-1Lb" secondAttribute="leading" constant="10" id="gB1-k8-ih3"/>
+                            <constraint firstItem="5EW-cj-LQr" firstAttribute="top" secondItem="5Pb-V0-9gc" secondAttribute="bottom" constant="20" id="xZ9-rF-bmr"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ts8-Io-1Lb" firstAttribute="top" secondItem="t2i-aR-EZe" secondAttribute="top" id="6AU-rC-Lje"/>
+                    <constraint firstAttribute="trailing" secondItem="Ts8-Io-1Lb" secondAttribute="trailing" id="G1M-pl-zhO"/>
+                    <constraint firstItem="Ts8-Io-1Lb" firstAttribute="leading" secondItem="t2i-aR-EZe" secondAttribute="leading" id="rHE-DT-gRj"/>
+                    <constraint firstAttribute="bottom" secondItem="Ts8-Io-1Lb" secondAttribute="bottom" id="sU1-OU-7mk"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="241" height="165"/>
+            <point key="canvasLocation" x="118.17073170731707" y="-34.83050847457627"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
