@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Satoshi-Bold.otf">
+            <string>Satoshi-Bold</string>
+        </array>
+        <array key="Satoshi-Regular.otf">
+            <string>Satoshi-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TourPlanApprovalinfoTVC" rowHeight="176" id="DMw-R1-Ol5" customClass="TourPlanApprovalinfoTVC" customModule="SAN_ZEN" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="614" height="176"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DMw-R1-Ol5" id="l0h-ST-OTN">
+                <rect key="frame" x="0.0" y="0.0" width="614" height="176"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r82-u1-Kfw">
+                        <rect key="frame" x="15" y="10" width="584" height="60"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wasim Akram Ahmed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ID-q9-eMG">
+                                <rect key="frame" x="217" y="20.666666666666668" width="150.33333333333337" height="19.000000000000004"/>
+                                <fontDescription key="fontDescription" name="Satoshi-Bold" family="Satoshi" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="3kP-qt-VBi"/>
+                            <constraint firstItem="1ID-q9-eMG" firstAttribute="centerX" secondItem="r82-u1-Kfw" secondAttribute="centerX" id="aoY-9K-7BF"/>
+                            <constraint firstItem="1ID-q9-eMG" firstAttribute="centerY" secondItem="r82-u1-Kfw" secondAttribute="centerY" id="yBg-60-TkI"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="suG-Nj-rGv">
+                        <rect key="frame" x="15" y="70" width="571" height="60"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEp-tU-Ycx">
+                                <rect key="frame" x="0.0" y="0.0" width="571" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2VG-vG-dwE">
+                                        <rect key="frame" x="0.0" y="0.0" width="171.33333333333334" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tour Planned for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOK-KJ-6Rh">
+                                                <rect key="frame" x="0.0" y="0.0" width="171.33333333333334" height="30"/>
+                                                <fontDescription key="fontDescription" name="Satoshi-Regular" family="Satoshi" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oct 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gl-z8-n2k">
+                                                <rect key="frame" x="0.0" y="30" width="171.33333333333334" height="30"/>
+                                                <fontDescription key="fontDescription" name="Satoshi-Bold" family="Satoshi" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="S3d-yb-kgw">
+                                        <rect key="frame" x="171.33333333333337" y="0.0" width="199.66666666666663" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tour planned Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYa-je-Kj2">
+                                                <rect key="frame" x="0.0" y="0.0" width="199.66666666666666" height="30"/>
+                                                <fontDescription key="fontDescription" name="Satoshi-Regular" family="Satoshi" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnx-xA-TP6">
+                                                <rect key="frame" x="0.0" y="30" width="199.66666666666666" height="30"/>
+                                                <fontDescription key="fontDescription" name="Satoshi-Bold" family="Satoshi" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9Ct-qM-lPr">
+                                        <rect key="frame" x="371" y="0.0" width="200" height="60"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Week off Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jze-d9-dXe">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+                                                <fontDescription key="fontDescription" name="Satoshi-Regular" family="Satoshi" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9u-J2-sgD">
+                                                <rect key="frame" x="0.0" y="30" width="200" height="30"/>
+                                                <fontDescription key="fontDescription" name="Satoshi-Bold" family="Satoshi" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2VG-vG-dwE" firstAttribute="width" secondItem="LEp-tU-Ycx" secondAttribute="width" multiplier="0.3" id="VIf-ov-O1T"/>
+                                    <constraint firstItem="S3d-yb-kgw" firstAttribute="width" secondItem="LEp-tU-Ycx" secondAttribute="width" multiplier="0.35" id="aq1-fS-Bcb"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LEp-tU-Ycx" firstAttribute="leading" secondItem="suG-Nj-rGv" secondAttribute="leading" id="3kE-3S-fKH"/>
+                            <constraint firstAttribute="bottom" secondItem="LEp-tU-Ycx" secondAttribute="bottom" id="5u4-lv-gxj"/>
+                            <constraint firstItem="LEp-tU-Ycx" firstAttribute="top" secondItem="suG-Nj-rGv" secondAttribute="top" id="9tt-iM-AdW"/>
+                            <constraint firstAttribute="height" constant="60" id="Fna-1S-rAe"/>
+                            <constraint firstAttribute="trailing" secondItem="LEp-tU-Ycx" secondAttribute="trailing" id="HPl-oc-fMD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="r82-u1-Kfw" firstAttribute="top" secondItem="l0h-ST-OTN" secondAttribute="top" constant="10" id="4xs-4e-Atb"/>
+                    <constraint firstItem="suG-Nj-rGv" firstAttribute="leading" secondItem="l0h-ST-OTN" secondAttribute="leading" constant="15" id="8XK-gv-OuZ"/>
+                    <constraint firstItem="r82-u1-Kfw" firstAttribute="leading" secondItem="l0h-ST-OTN" secondAttribute="leading" constant="15" id="EN8-bC-2Ja"/>
+                    <constraint firstItem="suG-Nj-rGv" firstAttribute="width" secondItem="l0h-ST-OTN" secondAttribute="width" multiplier="0.93" id="tw3-ot-Cwa"/>
+                    <constraint firstItem="suG-Nj-rGv" firstAttribute="top" secondItem="r82-u1-Kfw" secondAttribute="bottom" id="u9f-ky-od4"/>
+                    <constraint firstAttribute="trailing" secondItem="r82-u1-Kfw" secondAttribute="trailing" constant="15" id="xYt-S0-Yaa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="KUK-cO-o8F"/>
+            <connections>
+                <outlet property="mrNameLbl" destination="1ID-q9-eMG" id="bG0-uQ-TRq"/>
+                <outlet property="totalPlannedDaysLbl" destination="hnx-xA-TP6" id="RJF-bS-rJG"/>
+                <outlet property="tourPlannedforLbl" destination="1gl-z8-n2k" id="Wov-g5-r9a"/>
+                <outlet property="weeklyoffDaysLbl" destination="J9u-J2-sgD" id="9cJ-yX-yjn"/>
+            </connections>
+            <point key="canvasLocation" x="370.9923664122137" y="92.253521126760575"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

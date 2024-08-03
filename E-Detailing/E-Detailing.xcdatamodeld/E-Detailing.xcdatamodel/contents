@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AddedDCRCall" representedClassName="AddedDCRCall" syncable="YES" codeGenerationType="class">
+        <attribute name="addedCallID" optional="YES" attributeType="String"/>
+        <attribute name="callDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isDataSent" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="outBoxParam" optional="YES" attributeType="Binary"/>
+        <attribute name="overallRemarks" optional="YES" attributeType="String"/>
+        <attribute name="pobValue" optional="YES" attributeType="String"/>
+        <relationship name="additionalCallViewModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AdditionalCallViewModelCDEntity"/>
+        <relationship name="capturedEvents" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventCaptureViewModelCDEntity"/>
+        <relationship name="detailedSlides" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DetailedSlideCDEntity"/>
+        <relationship name="inputViewModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InputViewModelCDEntity"/>
+        <relationship name="jointWorkViewModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JointWorkViewModelCDEntity"/>
+        <relationship name="overAllFeedBack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Feedback"/>
+        <relationship name="productViewModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductViewModelCDEntity"/>
+        <relationship name="rcpaDetailsModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RCPAdetailsCDEntity"/>
+    </entity>
+    <entity name="AdditionalCallCDModel" representedClassName="AdditionalCallCDModel" syncable="YES" codeGenerationType="class">
+        <relationship name="additionalCall" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DoctorFencing"/>
+        <relationship name="inputs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InputDataCDModel"/>
+        <relationship name="inputSelectedListViewModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="InputViewModelCDEntity"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductDataCDModel"/>
+        <relationship name="productSelectedListViewModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductViewModelCDEntity"/>
+    </entity>
+    <entity name="AdditionalCallViewModelCDEntity" representedClassName="AdditionalCallViewModelCDEntity" syncable="YES" codeGenerationType="class">
+        <relationship name="additionalCallViewModel" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AdditionalCallCDModel"/>
+    </entity>
+    <entity name="AdditionalCompetitorsInfoCDModel" representedClassName="AdditionalCompetitorsInfoCDModel" syncable="YES" codeGenerationType="class">
+        <attribute name="qty" optional="YES" attributeType="String"/>
+        <attribute name="rate" optional="YES" attributeType="String"/>
+        <attribute name="remarks" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="String"/>
+        <relationship name="competitor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competitor"/>
+    </entity>
+    <entity name="Brand" representedClassName="Brand" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CacheJointworks" representedClassName="CacheJointworks" syncable="YES" codeGenerationType="class">
+        <relationship name="jointworks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JointWork"/>
+    </entity>
+    <entity name="ChekinInfo" representedClassName="ChekinInfo" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="checkinDateTime" optional="YES" attributeType="String"/>
+        <attribute name="checkinTime" optional="YES" attributeType="String"/>
+        <attribute name="checkOutDateTime" optional="YES" attributeType="String"/>
+        <attribute name="checkOutTime" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Chemist" representedClassName="Chemist" syncable="YES" codeGenerationType="class">
+        <attribute name="addr" optional="YES" attributeType="String"/>
+        <attribute name="categoryCode" optional="YES" attributeType="String"/>
+        <attribute name="chemistContact" optional="YES" attributeType="String"/>
+        <attribute name="chemistEmail" optional="YES" attributeType="String"/>
+        <attribute name="chemistFax" optional="YES" attributeType="String"/>
+        <attribute name="chemistMobile" optional="YES" attributeType="String"/>
+        <attribute name="chemistPhone" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="geoTagCnt" optional="YES" attributeType="String"/>
+        <attribute name="imgName" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lat" optional="YES" attributeType="String"/>
+        <attribute name="long" optional="YES" attributeType="String"/>
+        <attribute name="mapId" optional="YES" attributeType="String"/>
+        <attribute name="maxGeoMap" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="sfCode" optional="YES" attributeType="String"/>
+        <attribute name="townCode" optional="YES" attributeType="String"/>
+        <attribute name="townName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ChemistCategory" representedClassName="ChemistCategory" syncable="YES" codeGenerationType="class">
+        <attribute name="categoryName" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Competitor" representedClassName="Competitor" syncable="YES" codeGenerationType="class">
+        <attribute name="compName" optional="YES" attributeType="String"/>
+        <attribute name="compProductName" optional="YES" attributeType="String"/>
+        <attribute name="compProductSlNo" optional="YES" attributeType="String"/>
+        <attribute name="compSlNo" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ourProductCode" optional="YES" attributeType="String"/>
+        <attribute name="ourProductName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="DcrDates" representedClassName="DcrDates" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="editFlag" optional="YES" attributeType="String"/>
+        <attribute name="flag" optional="YES" attributeType="String"/>
+        <attribute name="isDateAdded" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="reason" optional="YES" attributeType="String"/>
+        <attribute name="sfcode" optional="YES" attributeType="String"/>
+        <attribute name="tbname" optional="YES" attributeType="String"/>
+        <attribute name="timeZone" optional="YES" attributeType="String"/>
+        <attribute name="timezoneType" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Departs" representedClassName="Departs" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="userName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="DetailedSlideCDEntity" representedClassName="DetailedSlideCDEntity" syncable="YES" codeGenerationType="class">
+        <relationship name="detailedSlides" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DetailedSlideCDM"/>
+    </entity>
+    <entity name="DetailedSlideCDM" representedClassName="DetailedSlideCDM" syncable="YES" codeGenerationType="class">
+        <attribute name="brandCode" optional="YES" attributeType="String"/>
+        <attribute name="endTime" optional="YES" attributeType="String"/>
+        <attribute name="isDisliked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isLiked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isShared" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="remarks" optional="YES" attributeType="String"/>
+        <attribute name="remarksValue" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="slideID" optional="YES" attributeType="String"/>
+        <attribute name="startTime" optional="YES" attributeType="String"/>
+        <relationship name="brand" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Brand"/>
+        <relationship name="slidesModel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SlidesCDModel"/>
+    </entity>
+    <entity name="DoctorCategory" representedClassName="DoctorCategory" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="doctorCategoryName" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="DoctorClass" representedClassName="DoctorClass" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="doctorClassName" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="DoctorFencing" representedClassName="DoctorFencing" syncable="YES" codeGenerationType="class">
+        <attribute name="addrs" optional="YES" attributeType="String"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="categoryCode" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="dob" optional="YES" attributeType="String"/>
+        <attribute name="docDesig" optional="YES" attributeType="String"/>
+        <attribute name="docEmail" optional="YES" attributeType="String"/>
+        <attribute name="doctorClassCode" optional="YES" attributeType="String"/>
+        <attribute name="doctorClassName" optional="YES" attributeType="String"/>
+        <attribute name="dow" optional="YES" attributeType="String"/>
+        <attribute name="drSex" optional="YES" attributeType="String"/>
+        <attribute name="geoTagCnt" optional="YES" attributeType="String"/>
+        <attribute name="hosAddr" optional="YES" attributeType="String"/>
+        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lat" optional="YES" attributeType="String"/>
+        <attribute name="long" optional="YES" attributeType="String"/>
+        <attribute name="mapId" optional="YES" attributeType="String"/>
+        <attribute name="mappProducts" optional="YES" attributeType="String"/>
+        <attribute name="maxGeoMap" optional="YES" attributeType="String"/>
+        <attribute name="mobile" optional="YES" attributeType="String"/>
+        <attribute name="mProd" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="plcyAcptFl" optional="YES" attributeType="String"/>
+        <attribute name="productCode" optional="YES" attributeType="String"/>
+        <attribute name="resAddr" optional="YES" attributeType="String"/>
+        <attribute name="sfCode" optional="YES" attributeType="String"/>
+        <attribute name="speciality" optional="YES" attributeType="String"/>
+        <attribute name="specialityCode" optional="YES" attributeType="String"/>
+        <attribute name="townCode" optional="YES" attributeType="String"/>
+        <attribute name="townName" optional="YES" attributeType="String"/>
+        <attribute name="uRwId" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="EachDateTourPlan" representedClassName="EachDateTourPlan" syncable="YES" codeGenerationType="class">
+        <attribute name="plansData" optional="YES" attributeType="Binary"/>
+    </entity>
+    <entity name="EachDayPlan" representedClassName="EachDayPlan" syncable="YES" codeGenerationType="class">
+        <attribute name="isRejected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSynced" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="planDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="rejectionReason" optional="YES" attributeType="String"/>
+        <attribute name="remarks" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="eachPlan" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EachPlan"/>
+    </entity>
+    <entity name="EachDayStatus" representedClassName="EachDayStatus" syncable="YES" codeGenerationType="class">
+        <attribute name="didUserWindup" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isCheckinSuccess" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isCheckoutSuccess" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isFinalSubmitSuccess" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSynced" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="param" optional="YES" attributeType="Binary"/>
+        <attribute name="statusDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="checkinInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChekinInfo"/>
+    </entity>
+    <entity name="EachPlan" representedClassName="EachPlan" syncable="YES" codeGenerationType="class">
+        <attribute name="isRetrived" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="planDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="remarks" optional="YES" attributeType="String"/>
+        <attribute name="rsfID" optional="YES" attributeType="String"/>
+        <attribute name="townCodes" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="wortTypeCode" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Efff" representedClassName="Efff" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="timeZone" optional="YES" attributeType="String"/>
+        <attribute name="timeZoneType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="EventCaptureCDM" representedClassName="EventCaptureCDM" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="imageDescription" optional="YES" attributeType="String"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
+        <attribute name="timeStamp" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="EventCaptureViewModelCDEntity" representedClassName="EventCaptureViewModelCDEntity" syncable="YES" codeGenerationType="class">
+        <relationship name="capturedEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventCaptureCDM"/>
+    </entity>
+    <entity name="Feedback" representedClassName="Feedback" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="GeneralSlideGroupsCDModel" representedClassName="GeneralSlideGroupsCDModel" syncable="YES" codeGenerationType="class">
+        <attribute name="divisionCode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="productBrdCode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="subdivisionCode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="groupedSlide" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GroupedSlidesCDModel"/>
+    </entity>
+    <entity name="GroupedBrandsSlideCDModel" representedClassName="GroupedBrandsSlideCDModel" syncable="YES" codeGenerationType="class">
+        <attribute name="divisionCode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="productBrdCode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="subdivisionCode" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="groupedSlide" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SavedSlidesCDModel"/>
+    </entity>
+    <entity name="GroupedSlidesCDModel" representedClassName="GroupedSlidesCDModel" syncable="YES" codeGenerationType="class">
+        <attribute name="camp" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="categoryCode" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fileName" optional="YES" attributeType="String"/>
+        <attribute name="filePath" optional="YES" attributeType="String"/>
+        <attribute name="fileType" optional="YES" attributeType="String"/>
+        <attribute name="group" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="isDownloadCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isFailed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="noofSamples" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ordNo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="productDetailCode" optional="YES" attributeType="String"/>
+        <attribute name="slideData" optional="YES" attributeType="Binary"/>
+        <attribute name="slideId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="specialityCode" optional="YES" attributeType="String"/>
+        <attribute name="utType" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Holidays" representedClassName="Holidays" syncable="YES" codeGenerationType="class">
+        <attribute name="day_name" optional="YES" attributeType="String"/>
+        <attribute name="flag" optional="YES" attributeType="String"/>
+        <attribute name="hday" optional="YES" attributeType="String"/>
+        <attribute name="holiday_Date" optional="YES" attributeType="String"/>
+        <attribute name="holiday_month" optional="YES" attributeType="String"/>
+        <attribute name="holiday_Name" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="month_name" optional="YES" attributeType="String"/>
+        <attribute name="wtcode" optional="YES" attributeType="String"/>
+        <attribute name="wtname" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="HomeData" representedClassName="HomeData" syncable="YES" codeGenerationType="class">
+        <attribute name="anslNo" optional="YES" attributeType="String"/>
+        <attribute name="custCode" optional="YES" attributeType="String"/>
+        <attribute name="custName" optional="YES" attributeType="String"/>
+        <attribute name="custType" optional="YES" attributeType="String"/>
+        <attribute name="dayStatus" optional="YES" attributeType="String"/>
+        <attribute name="dcr_dt" optional="YES" attributeType="String"/>
+        <attribute name="dcr_flag" optional="YES" attributeType="String"/>
+        <attribute name="editflag" optional="YES" attributeType="String"/>
+        <attribute name="fw_Indicator" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isDataSentToAPI" optional="YES" attributeType="String"/>
+        <attribute name="mnth" optional="YES" attributeType="String"/>
+        <attribute name="month_name" optional="YES" attributeType="String"/>
+        <attribute name="rejectionReason" optional="YES" attributeType="String"/>
+        <attribute name="sf_Code" optional="YES" attributeType="String"/>
+        <attribute name="town_code" optional="YES" attributeType="String"/>
+        <attribute name="town_name" optional="YES" attributeType="String"/>
+        <attribute name="trans_SlNo" optional="YES" attributeType="String"/>
+        <attribute name="yr" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Input" representedClassName="Input" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mapId" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="effF" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+        <relationship name="effT" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+    </entity>
+    <entity name="InputDataCDModel" representedClassName="InputDataCDModel" syncable="YES" codeGenerationType="class">
+        <attribute name="availableCount" optional="YES" attributeType="String"/>
+        <attribute name="inputCount" optional="YES" attributeType="String"/>
+        <relationship name="input" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Input"/>
+    </entity>
+    <entity name="InputStockBalance" representedClassName="InputStockBalance" syncable="YES" codeGenerationType="class">
+        <attribute name="balanceStock" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="sfCode" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="InputViewModelCDEntity" representedClassName="InputViewModelCDEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="orderSeq" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="inputViewModelArr" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InputDataCDModel"/>
+    </entity>
+    <entity name="JointWork" representedClassName="JointWork" syncable="YES" codeGenerationType="class">
+        <attribute name="actFlg" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="desig" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mapId" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="ownDiv" optional="YES" attributeType="String"/>
+        <attribute name="reportingToSF" optional="YES" attributeType="String"/>
+        <attribute name="sfName" optional="YES" attributeType="String"/>
+        <attribute name="sfStatus" optional="YES" attributeType="String"/>
+        <attribute name="sfType" optional="YES" attributeType="String"/>
+        <attribute name="steps" optional="YES" attributeType="String"/>
+        <attribute name="usrDfdUserName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="JointWorkDataCDModel" representedClassName="JointWorkDataCDModel" syncable="YES" codeGenerationType="class">
+        <relationship name="jointWork" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JointWork"/>
+    </entity>
+    <entity name="JointWorkViewModelCDEntity" representedClassName="JointWorkViewModelCDEntity" syncable="YES" codeGenerationType="class">
+        <relationship name="jointWorkViewModelArr" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JointWorkDataCDModel"/>
+    </entity>
+    <entity name="LeaveType" representedClassName="LeaveType" syncable="YES" codeGenerationType="class">
+        <attribute name="activeFlag" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="leaveCode" optional="YES" attributeType="String"/>
+        <attribute name="leaveName" optional="YES" attributeType="String"/>
+        <attribute name="leaveSName" optional="YES" attributeType="String"/>
+        <relationship name="createdDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+    </entity>
+    <entity name="MapCompDet" representedClassName="MapCompDet" syncable="YES" codeGenerationType="class">
+        <attribute name="competitorProductBulk" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ourProductCode" optional="YES" attributeType="String"/>
+        <attribute name="ourProductName" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="MasterData" representedClassName="MasterData" syncable="YES" codeGenerationType="class">
+        <relationship name="brand" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Brand"/>
+        <relationship name="category" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DoctorCategory"/>
+        <relationship name="chemist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Chemist"/>
+        <relationship name="chemistCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChemistCategory"/>
+        <relationship name="competitor" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Competitor"/>
+        <relationship name="departs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Departs"/>
+        <relationship name="doctorClass" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DoctorClass"/>
+        <relationship name="doctorFencing" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DoctorFencing"/>
+        <relationship name="feedback" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Feedback"/>
+        <relationship name="holidays" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Holidays"/>
+        <relationship name="homeData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HomeData"/>
+        <relationship name="input" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Input"/>
+        <relationship name="jointWork" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JointWork"/>
+        <relationship name="leaveType" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LeaveType"/>
+        <relationship name="mapCompDet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MapCompDet"/>
+        <relationship name="myDayPlan" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MyDayPlan"/>
+        <relationship name="product" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product"/>
+        <relationship name="qualification" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Qualifications"/>
+        <relationship name="slideBrand" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SlideBrand"/>
+        <relationship name="slides" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductSlides"/>
+        <relationship name="slideSpeciality" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SlideSpeciality"/>
+        <relationship name="speciality" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Speciality"/>
+        <relationship name="stockBalance" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StockBalance"/>
+        <relationship name="stockist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stockist"/>
+        <relationship name="subordinate" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subordinate"/>
+        <relationship name="subordinateMgr" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subordinate"/>
+        <relationship name="tableSetup" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TableSetup"/>
+        <relationship name="territory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Territory"/>
+        <relationship name="theraptic" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SlideTheraptic"/>
+        <relationship name="unListedDoc" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UnListedDoctor"/>
+        <relationship name="unsyncedHomeData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UnsyncedHomeData"/>
+        <relationship name="visitControl" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VisitControl"/>
+        <relationship name="weeklyoff" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Weeklyoff"/>
+        <relationship name="workType" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WorkType"/>
+    </entity>
+    <entity name="MyDayPlan" representedClassName="MyDayPlan" syncable="YES" codeGenerationType="class">
+        <attribute name="fwFlg" optional="YES" attributeType="String"/>
+        <attribute name="hqName" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="plan" optional="YES" attributeType="String"/>
+        <attribute name="planName" optional="YES" attributeType="String"/>
+        <attribute name="remarks" optional="YES" attributeType="String"/>
+        <attribute name="sfCode" optional="YES" attributeType="String"/>
+        <attribute name="sfMem" optional="YES" attributeType="String"/>
+        <attribute name="tpCluster" optional="YES" attributeType="String"/>
+        <attribute name="tpDoctor" optional="YES" attributeType="String"/>
+        <attribute name="tpVwFlg" optional="YES" attributeType="String"/>
+        <attribute name="tpWorktype" optional="YES" attributeType="String"/>
+        <attribute name="workType" optional="YES" attributeType="String"/>
+        <attribute name="workTypeName" optional="YES" attributeType="String"/>
+        <relationship name="tpdt" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+    </entity>
+    <entity name="OutBoxParam" representedClassName="OutBoxParam" syncable="YES" codeGenerationType="class">
+        <attribute name="unSyncedParams" optional="YES" attributeType="Binary"/>
+    </entity>
+    <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
+        <attribute name="actFlg" optional="YES" attributeType="String"/>
+        <attribute name="cateId" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="dRate" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mapId" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="noOfSamples" optional="YES" attributeType="String"/>
+        <attribute name="productMode" optional="YES" attributeType="String"/>
+        <attribute name="pSlNo" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ProductDataCDModel" representedClassName="ProductDataCDModel" syncable="YES" codeGenerationType="class">
+        <attribute name="availableCount" optional="YES" attributeType="String"/>
+        <attribute name="isDetailed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="rcpaCount" optional="YES" attributeType="String"/>
+        <attribute name="rxCount" optional="YES" attributeType="String"/>
+        <attribute name="sampleCount" optional="YES" attributeType="String"/>
+        <attribute name="stockistCode" optional="YES" attributeType="String"/>
+        <attribute name="stockistName" optional="YES" attributeType="String"/>
+        <attribute name="totalCount" optional="YES" attributeType="String"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product"/>
+    </entity>
+    <entity name="ProductDetailsCDModel" representedClassName="ProductDetailsCDModel" syncable="YES" codeGenerationType="class">
+        <attribute name="addedQuantity" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="addedRate" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="addedTotal" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="addedValue" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <relationship name="addedProductArr" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductWithCompetiorsCDModel"/>
+    </entity>
+    <entity name="ProductSlides" representedClassName="ProductSlides" syncable="YES" codeGenerationType="class">
+        <attribute name="camp" optional="YES" attributeType="String"/>
+        <attribute name="categoryCode" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="filePath" optional="YES" attributeType="String"/>
+        <attribute name="fileType" optional="YES" attributeType="String"/>
+        <attribute name="group" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="noOfSamples" optional="YES" attributeType="String"/>
+        <attribute name="orderNo" optional="YES" attributeType="String"/>
+        <attribute name="priority" optional="YES" attributeType="String"/>
+        <attribute name="productDetailCode" optional="YES" attributeType="String"/>
+        <attribute name="slideId" optional="YES" attributeType="String"/>
+        <attribute name="specialityCode" optional="YES" attributeType="String"/>
+        <relationship name="effFrom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+        <relationship name="effTo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+    </entity>
+    <entity name="ProductStockBalance" representedClassName="ProductStockBalance" syncable="YES" codeGenerationType="class">
+        <attribute name="balanceStock" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="pack" optional="YES" attributeType="String"/>
+        <attribute name="sfCode" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ProductViewModelCDEntity" representedClassName="ProductViewModelCDEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="orderSeq" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="productViewModelArr" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductDataCDModel"/>
+    </entity>
+    <entity name="ProductWithCompetiorsCDModel" representedClassName="ProductWithCompetiorsCDModel" syncable="YES" codeGenerationType="class">
+        <relationship name="addedProduct" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product"/>
+        <relationship name="competitorsInfoArr" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AdditionalCompetitorsInfoCDModel"/>
+    </entity>
+    <entity name="Qualifications" representedClassName="Qualifications" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="doctorQualificationName" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="RCPAdetailsCDEntity" representedClassName="RCPAdetailsCDEntity" syncable="YES" codeGenerationType="class">
+        <relationship name="rcpadtailsCDModelArr" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RCPAdetailsCDModel"/>
+    </entity>
+    <entity name="RCPAdetailsCDModel" representedClassName="RCPAdetailsCDModel" syncable="YES" codeGenerationType="class">
+        <relationship name="addedChemist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chemist"/>
+        <relationship name="addedProductDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductDetailsCDModel"/>
+    </entity>
+    <entity name="SavedCDPresentation" representedClassName="SavedCDPresentation" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="groupedBrandsSlideModel" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GroupedBrandsSlideCDModel"/>
+    </entity>
+    <entity name="SavedSlidesCDModel" representedClassName="SavedSlidesCDModel" syncable="YES" codeGenerationType="class">
+        <attribute name="camp" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="categoryCode" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fileName" optional="YES" attributeType="String"/>
+        <attribute name="filePath" optional="YES" attributeType="String"/>
+        <attribute name="fileType" optional="YES" attributeType="String"/>
+        <attribute name="group" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isDownloadCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isFailed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="noofSamples" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ordNo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="productDetailCode" optional="YES" attributeType="String"/>
+        <attribute name="slideData" optional="YES" attributeType="Binary"/>
+        <attribute name="slideId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="specialityCode" optional="YES" attributeType="String"/>
+        <attribute name="utType" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="SelectedDayPlanHQ" representedClassName="SelectedDayPlanHQ" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mapId" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="reportingToSF" optional="YES" attributeType="String"/>
+        <attribute name="sfHq" optional="YES" attributeType="String"/>
+        <attribute name="steps" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SelectedHQ" representedClassName="SelectedHQ" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mapId" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="reportingToSF" optional="YES" attributeType="String"/>
+        <attribute name="sfHq" optional="YES" attributeType="String"/>
+        <attribute name="steps" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SlideBrand" representedClassName="SlideBrand" syncable="YES" codeGenerationType="class">
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="priority" optional="YES" attributeType="String"/>
+        <attribute name="productBrandCode" optional="YES" attributeType="String"/>
+        <attribute name="subDivisionCode" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="createdDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+        <relationship name="updatedDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+    </entity>
+    <entity name="SlidesCDModel" representedClassName="SlidesCDModel" syncable="YES" codeGenerationType="class">
+        <attribute name="camp" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="categoryCode" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fileName" optional="YES" attributeType="String"/>
+        <attribute name="filePath" optional="YES" attributeType="String"/>
+        <attribute name="fileType" optional="YES" attributeType="String"/>
+        <attribute name="group" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isDownloadCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isFailed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isSelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="noofSamples" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ordNo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="priority" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="productDetailCode" optional="YES" attributeType="String"/>
+        <attribute name="slideData" optional="YES" attributeType="Binary"/>
+        <attribute name="slideId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="specialityCode" optional="YES" attributeType="String"/>
+        <attribute name="utType" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="SlideSpeciality" representedClassName="SlideSpeciality" syncable="YES" codeGenerationType="class">
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="doctorSpecialCode" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="priority" optional="YES" attributeType="String"/>
+        <attribute name="productBrandCode" optional="YES" attributeType="String"/>
+        <attribute name="subDivisionCode" optional="YES" attributeType="String"/>
+        <relationship name="createdDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+        <relationship name="updatedDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+    </entity>
+    <entity name="SlideTheraptic" representedClassName="SlideTheraptic" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Speciality" representedClassName="Speciality" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="doctorSpecialName" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="StockBalance" representedClassName="StockBalance" syncable="YES" codeGenerationType="class">
+        <relationship name="input" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InputStockBalance"/>
+        <relationship name="product" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProductStockBalance"/>
+    </entity>
+    <entity name="Stockist" representedClassName="Stockist" syncable="YES" codeGenerationType="class">
+        <attribute name="addr" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="divisionCode" optional="YES" attributeType="String"/>
+        <attribute name="geoTagCnt" optional="YES" attributeType="String"/>
+        <attribute name="imgName" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lat" optional="YES" attributeType="String"/>
+        <attribute name="long" optional="YES" attributeType="String"/>
+        <attribute name="mapId" optional="YES" attributeType="String"/>
+        <attribute name="maxGeoMap" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="sfCode" optional="YES" attributeType="String"/>
+        <attribute name="stkContDesig" optional="YES" attributeType="String"/>
+        <attribute name="stkCreditDays" optional="YES" attributeType="String"/>
+        <attribute name="stkCreditLimit" optional="YES" attributeType="String"/>
+        <attribute name="stkEmail" optional="YES" attributeType="String"/>
+        <attribute name="stkMobile" optional="YES" attributeType="String"/>
+        <attribute name="stkPhone" optional="YES" attributeType="String"/>
+        <attribute name="townCode" optional="YES" attributeType="String"/>
+        <attribute name="townName" optional="YES" attributeType="String"/>
+        <attribute name="uRwId" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Subordinate" representedClassName="Subordinate" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mapId" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="reportingToSF" optional="YES" attributeType="String"/>
+        <attribute name="sfHq" optional="YES" attributeType="String"/>
+        <attribute name="steps" optional="YES" attributeType="String"/>
+        <relationship name="sfDob" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+        <relationship name="sfDow" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+    </entity>
+    <entity name="TableSetup" representedClassName="TableSetup" syncable="YES" codeGenerationType="class">
+        <attribute name="addsessionCount" optional="YES" attributeType="String"/>
+        <attribute name="addsessionNeed" optional="YES" attributeType="String"/>
+        <attribute name="chmNeed" optional="YES" attributeType="String"/>
+        <attribute name="cip_Need" optional="YES" attributeType="String"/>
+        <attribute name="clusterNeed" optional="YES" attributeType="String"/>
+        <attribute name="clustertype" optional="YES" attributeType="String"/>
+        <attribute name="div" optional="YES" attributeType="String"/>
+        <attribute name="drNeed" optional="YES" attributeType="String"/>
+        <attribute name="fw_meetup_mandatory" optional="YES" attributeType="String"/>
+        <attribute name="holiday_Editable" optional="YES" attributeType="String"/>
+        <attribute name="hospNeed" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="jwNeed" optional="YES" attributeType="String"/>
+        <attribute name="max_doc" optional="YES" attributeType="String"/>
+        <attribute name="sf_code" optional="YES" attributeType="String"/>
+        <attribute name="stkNeed" optional="YES" attributeType="String"/>
+        <attribute name="tp_objective" optional="YES" attributeType="String"/>
+        <attribute name="unDrNeed" optional="YES" attributeType="String"/>
+        <attribute name="weeklyoff_Editable" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Territory" representedClassName="Territory" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lat" optional="YES" attributeType="String"/>
+        <attribute name="long" optional="YES" attributeType="String"/>
+        <attribute name="mapId" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="sfCode" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="UnListedDoctor" representedClassName="UnListedDoctor" syncable="YES" codeGenerationType="class">
+        <attribute name="addrs" optional="YES" attributeType="String"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="categoryCode" optional="YES" attributeType="String"/>
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="docHospCode" optional="YES" attributeType="String"/>
+        <attribute name="docHospName" optional="YES" attributeType="String"/>
+        <attribute name="doctorClassCode" optional="YES" attributeType="String"/>
+        <attribute name="doctorClassName" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="geoTagCnt" optional="YES" attributeType="String"/>
+        <attribute name="imgName" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lat" optional="YES" attributeType="String"/>
+        <attribute name="long" optional="YES" attributeType="String"/>
+        <attribute name="mapId" optional="YES" attributeType="String"/>
+        <attribute name="maxGeoMap" optional="YES" attributeType="String"/>
+        <attribute name="mobile" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="qual" optional="YES" attributeType="String"/>
+        <attribute name="sfCode" optional="YES" attributeType="String"/>
+        <attribute name="specialty" optional="YES" attributeType="String"/>
+        <attribute name="specialtyName" optional="YES" attributeType="String"/>
+        <attribute name="townCode" optional="YES" attributeType="String"/>
+        <attribute name="townName" optional="YES" attributeType="String"/>
+        <relationship name="dob" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+        <relationship name="dow" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Efff"/>
+    </entity>
+    <entity name="UnsyncedEventCaptures" representedClassName="UnsyncedEventCaptures" syncable="YES" codeGenerationType="class">
+        <attribute name="custCode" optional="YES" attributeType="String"/>
+        <attribute name="eventcaptureDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="eventcaptureParamData" optional="YES" attributeType="Binary"/>
+        <relationship name="unsyncedCapturedEvents" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventCaptureViewModelCDEntity"/>
+    </entity>
+    <entity name="UnsyncedHomeData" representedClassName="UnsyncedHomeData" syncable="YES" codeGenerationType="class">
+        <attribute name="anslNo" optional="YES" attributeType="String"/>
+        <attribute name="checkintime" optional="YES" attributeType="String"/>
+        <attribute name="checkoutTime" optional="YES" attributeType="String"/>
+        <attribute name="custCode" optional="YES" attributeType="String"/>
+        <attribute name="custName" optional="YES" attributeType="String"/>
+        <attribute name="custType" optional="YES" attributeType="String"/>
+        <attribute name="dayStatus" optional="YES" attributeType="String"/>
+        <attribute name="dcr_dt" optional="YES" attributeType="String"/>
+        <attribute name="dcr_flag" optional="YES" attributeType="String"/>
+        <attribute name="editflag" optional="YES" attributeType="String"/>
+        <attribute name="fw_Indicator" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isDataSentToAPI" optional="YES" attributeType="String"/>
+        <attribute name="mnth" optional="YES" attributeType="String"/>
+        <attribute name="month_name" optional="YES" attributeType="String"/>
+        <attribute name="rejectionReason" optional="YES" attributeType="String"/>
+        <attribute name="sf_Code" optional="YES" attributeType="String"/>
+        <attribute name="town_code" optional="YES" attributeType="String"/>
+        <attribute name="town_name" optional="YES" attributeType="String"/>
+        <attribute name="trans_SlNo" optional="YES" attributeType="String"/>
+        <attribute name="yr" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="VisitControl" representedClassName="VisitControl" syncable="YES" codeGenerationType="class">
+        <attribute name="custCode" optional="YES" attributeType="String"/>
+        <attribute name="custName" optional="YES" attributeType="String"/>
+        <attribute name="custType" optional="YES" attributeType="String"/>
+        <attribute name="dcrDt" optional="YES" attributeType="String"/>
+        <attribute name="dcrFlag" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="month" optional="YES" attributeType="String"/>
+        <attribute name="townCode" optional="YES" attributeType="String"/>
+        <attribute name="townName" optional="YES" attributeType="String"/>
+        <attribute name="year" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Weeklyoff" representedClassName="Weeklyoff" syncable="YES" codeGenerationType="class">
+        <attribute name="division_Code" optional="YES" attributeType="String"/>
+        <attribute name="flag" optional="YES" attributeType="String"/>
+        <attribute name="holiday_Mode" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="state_Code" optional="YES" attributeType="String"/>
+        <attribute name="wtcode" optional="YES" attributeType="String"/>
+        <attribute name="wtname" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="WorkType" representedClassName="WorkType" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="eTabs" optional="YES" attributeType="String"/>
+        <attribute name="fwFlg" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="sfCode" optional="YES" attributeType="String"/>
+        <attribute name="terrslFlg" optional="YES" attributeType="String"/>
+        <attribute name="tpDCR" optional="YES" attributeType="String"/>
+    </entity>
+</model>

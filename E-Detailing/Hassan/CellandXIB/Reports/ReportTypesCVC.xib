@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReportTypesCVC" id="gTV-IL-0wX" customClass="ReportTypesCVC" customModule="E_Detailing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="348" height="169"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="348" height="169"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yFd-51-JWB">
+                        <rect key="frame" x="8.5" y="4" width="331" height="161"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozM-sa-snw">
+                                <rect key="frame" x="17.5" y="46" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Day Report" translatesAutoresizingMaskIntoConstraints="NO" id="KRo-Bu-dd1">
+                                <rect key="frame" x="17.5" y="16.5" width="64.5" height="64"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta8-77-zyO">
+                                <rect key="frame" x="17.5" y="111.5" width="308.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ozM-sa-snw" firstAttribute="leading" secondItem="ta8-77-zyO" secondAttribute="leading" id="6R9-j5-RFU"/>
+                            <constraint firstItem="ta8-77-zyO" firstAttribute="centerY" secondItem="yFd-51-JWB" secondAttribute="centerY" multiplier="1.5" id="GMc-KJ-1aE"/>
+                            <constraint firstAttribute="trailing" secondItem="ta8-77-zyO" secondAttribute="trailing" constant="5" id="RS9-0w-cbh"/>
+                            <constraint firstItem="KRo-Bu-dd1" firstAttribute="centerY" secondItem="yFd-51-JWB" secondAttribute="centerY" multiplier="0.6" id="TSX-2q-dW9"/>
+                            <constraint firstItem="KRo-Bu-dd1" firstAttribute="centerX" secondItem="yFd-51-JWB" secondAttribute="centerX" multiplier="0.3" id="U6l-L1-bfS"/>
+                            <constraint firstItem="KRo-Bu-dd1" firstAttribute="height" secondItem="yFd-51-JWB" secondAttribute="height" multiplier="0.4" id="ZEe-Gn-NzC"/>
+                            <constraint firstItem="ozM-sa-snw" firstAttribute="centerY" secondItem="yFd-51-JWB" secondAttribute="centerY" multiplier="0.7" id="kyB-r6-bdz"/>
+                            <constraint firstItem="ta8-77-zyO" firstAttribute="leading" secondItem="KRo-Bu-dd1" secondAttribute="leading" id="r12-3o-FXf"/>
+                            <constraint firstItem="KRo-Bu-dd1" firstAttribute="width" secondItem="yFd-51-JWB" secondAttribute="height" multiplier="0.4" id="wmA-at-OIH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="yFd-51-JWB" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Mqp-D3-7uf"/>
+                <constraint firstItem="yFd-51-JWB" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="jbA-5K-SEQ"/>
+                <constraint firstItem="yFd-51-JWB" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.95" id="jen-2u-IIW"/>
+                <constraint firstItem="yFd-51-JWB" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.95" id="uGR-6K-SaG"/>
+            </constraints>
+            <size key="customSize" width="348" height="169"/>
+            <connections>
+                <outlet property="elevateView" destination="yFd-51-JWB" id="q57-El-Ldc"/>
+                <outlet property="reportTypeIV" destination="KRo-Bu-dd1" id="g4S-YY-N84"/>
+                <outlet property="reportTypeLbl" destination="ta8-77-zyO" id="nJN-d8-jJJ"/>
+                <outlet property="titleLbl" destination="ozM-sa-snw" id="Adp-Hm-fLW"/>
+            </connections>
+            <point key="canvasLocation" x="174.14634146341464" y="-2.7966101694915255"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Day Report" width="40" height="40"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad10_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Satoshi-Bold.otf">
+            <string>Satoshi-Bold</string>
+        </array>
+        <array key="Satoshi-Medium.otf">
+            <string>Satoshi-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="rNy-ql-r3u" customClass="TagDetailsView" customModule="E_Detailing" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Bu-Tv-JQf">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r28-is-CfN">
+                            <rect key="frame" x="175" y="10" width="110" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="110" id="D90-9b-MUy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Satoshi-Bold" family="Satoshi" pointSize="18"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="  View" image="tagViewIcon">
+                                <color key="titleColor" red="0.94509803920000002" green="0.32549019610000002" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="k2u-Kk-klE">
+                            <rect key="frame" x="10" y="10" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Tx1-7N-Zoi"/>
+                                <constraint firstAttribute="width" constant="50" id="s00-CB-51l"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aM4-e7-nWi">
+                            <rect key="frame" x="15" y="75" width="270" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="4HD-nA-G3I"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Satoshi-Bold" family="Satoshi" pointSize="18"/>
+                            <color key="textColor" red="0.15686274510000001" green="0.1647058824" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIE-Rb-aAI">
+                            <rect key="frame" x="15" y="115" width="270" height="50"/>
+                            <fontDescription key="fontDescription" name="Satoshi-Medium" family="Satoshi" pointSize="18"/>
+                            <color key="textColor" red="0.15686274510000001" green="0.1647058824" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="GIE-Rb-aAI" firstAttribute="top" secondItem="aM4-e7-nWi" secondAttribute="bottom" constant="15" id="1TP-1L-whS"/>
+                        <constraint firstItem="k2u-Kk-klE" firstAttribute="leading" secondItem="5Bu-Tv-JQf" secondAttribute="leading" constant="10" id="AoJ-Kl-r9f"/>
+                        <constraint firstAttribute="trailing" secondItem="aM4-e7-nWi" secondAttribute="trailing" constant="15" id="AoK-xw-jXp"/>
+                        <constraint firstAttribute="trailing" secondItem="r28-is-CfN" secondAttribute="trailing" constant="15" id="Q9F-ME-XNR"/>
+                        <constraint firstAttribute="trailing" secondItem="GIE-Rb-aAI" secondAttribute="trailing" constant="15" id="X4D-oi-MdY"/>
+                        <constraint firstAttribute="bottom" secondItem="GIE-Rb-aAI" secondAttribute="bottom" constant="15" id="blQ-8z-Hi7"/>
+                        <constraint firstItem="aM4-e7-nWi" firstAttribute="top" secondItem="k2u-Kk-klE" secondAttribute="bottom" constant="15" id="c3D-PO-ko5"/>
+                        <constraint firstItem="GIE-Rb-aAI" firstAttribute="leading" secondItem="5Bu-Tv-JQf" secondAttribute="leading" constant="15" id="eRE-B4-FuZ"/>
+                        <constraint firstItem="r28-is-CfN" firstAttribute="top" secondItem="5Bu-Tv-JQf" secondAttribute="top" constant="10" id="pQT-8P-3GK"/>
+                        <constraint firstItem="k2u-Kk-klE" firstAttribute="top" secondItem="5Bu-Tv-JQf" secondAttribute="top" constant="10" id="wRl-Zr-jMg"/>
+                        <constraint firstItem="aM4-e7-nWi" firstAttribute="leading" secondItem="5Bu-Tv-JQf" secondAttribute="leading" constant="15" id="xGM-7T-5gQ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="arj-Q7-WlH"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="5Bu-Tv-JQf" firstAttribute="top" secondItem="rNy-ql-r3u" secondAttribute="top" id="4bj-Pt-D0p"/>
+                <constraint firstItem="arj-Q7-WlH" firstAttribute="trailing" secondItem="5Bu-Tv-JQf" secondAttribute="trailing" id="ENG-5R-dVg"/>
+                <constraint firstItem="5Bu-Tv-JQf" firstAttribute="bottom" secondItem="arj-Q7-WlH" secondAttribute="bottom" id="J1h-2y-cM3"/>
+                <constraint firstItem="5Bu-Tv-JQf" firstAttribute="leading" secondItem="arj-Q7-WlH" secondAttribute="leading" id="K7T-eE-u15"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btnView" destination="r28-is-CfN" id="ND7-Ph-CdP"/>
+                <outlet property="lblAddress" destination="GIE-Rb-aAI" id="WHS-cp-a4b"/>
+                <outlet property="lblName" destination="aM4-e7-nWi" id="ntc-RG-hat"/>
+                <outlet property="tagImage" destination="k2u-Kk-klE" id="FvC-eu-p78"/>
+            </connections>
+            <point key="canvasLocation" x="-26" y="40"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="profile" width="42.666667938232422" height="42.333332061767578"/>
+        <image name="tagViewIcon" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
