@@ -164,6 +164,7 @@ extension SlideDownloadVC : SlideDownloaderCellDelegate {
                                 self.delegate?.isBackgroundSyncInprogress(isCompleted: true, cacheObject: self.arrayOfAllSlideObjects, isToshowAlert: false, didEncountererror: false)
 
                                 self.checkifSyncIsCompleted(self.isFromlaunch) {
+                                    Shared.instance.removeLoaderInWindow()
                                     if !isfrorBackgroundTask {
                                         self.tableView.reloadData()
                                         self.tableView.isScrollEnabled = true
@@ -172,7 +173,7 @@ extension SlideDownloadVC : SlideDownloaderCellDelegate {
                                         Shared.instance.isSlideDownloading = false
                                         if !LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isSlidesDownloadPending) {
                                           
-                                            self.toSetupAlert(text: "Slides downloading completed", isEncounteredError: false)
+                                            self.toSetupAlert(text: "Slides grouped successfully", isEncounteredError: false)
                                         } else {
                                             self.toSetupAlert(text: "Slides download pending please do retry later.", isEncounteredError: true)
                                            
@@ -268,6 +269,7 @@ class SlideDownloadVC : UIViewController {
     var backgroundTask: UIBackgroundTaskIdentifier = .invalid
     var isBackgroundTaskRunning: Bool = false
     var iscellIterating: Bool = false
+    var isNewSlideExists: Bool = false
     @IBOutlet weak var tableView: UITableView!
     
     var slidesModel = [SlidesModel]()
@@ -302,25 +304,7 @@ class SlideDownloadVC : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.checkifSyncIsCompleted(self.isFromlaunch) {
-//        
-//                self.tableView.reloadData()
-//                self.tableView.isScrollEnabled = true
-//                self.tableView.isUserInteractionEnabled = true
-//                Shared.instance.iscelliterating = false
-//                Shared.instance.isSlideDownloading = false
-//                if !LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isSlidesDownloadPending) {
-//                  
-//                    self.toSetupAlert(text: "Slides downloading completed", isEncounteredError: false)
-//                } else {
-//                    self.toSetupAlert(text: "Slides download pending please do retry later.", isEncounteredError: true)
-//                   
-//                }
-//              
-//            }
-        
-        
-    
+
         setupuUI()
         initVIew()
         let cacheIndexStr = LocalStorage.shared.getString(key: LocalStorage.LocalValue.slideDownloadIndex)
@@ -328,7 +312,10 @@ class SlideDownloadVC : UIViewController {
             BackgroundTaskManager.shared.stopBackgroundTask()
             self.isDownloadingInProgress = false
             
-             _ = toCheckExistenceOfNewSlides()
+          //   _ = toCheckExistenceOfNewSlides()
+            
+            
+            
             toSetTableVIewDataSource()
             if LocalStorage.shared.getBool(key: .isConnectedToNetwork) {
                 startDownload(ifForsingleSeclection: false)
@@ -348,14 +335,18 @@ class SlideDownloadVC : UIViewController {
     }
     
     func setupuUI() {
-       // LocalStorage.shared.setBool(LocalStorage.LocalValue.isSlidesLoaded, value: false)
+        let downloadedArr = self.arrayOfAllSlideObjects.filter { $0.isDownloadCompleted }
+        
+        self.countLbl.text = "\(downloadedArr.count)/\( self.arrayOfAllSlideObjects .count)"
+        
+        // LocalStorage.shared.setBool(LocalStorage.LocalValue.isSlidesLoaded, value: false)
         self.tableView.register(UINib(nibName: "SlideDownloaderCell", bundle: nil), forCellReuseIdentifier: "SlideDownloaderCell")
         titleLbl.setFont(font: .bold(size: .BODY))
         lblStatus.setFont(font: .bold(size: .BODY))
         slideHolderVIew.layer.cornerRadius = 5
         // slideHolderVIew.elevate(2)
-      //  self.tableView.isScrollEnabled = true
-     
+        //  self.tableView.isScrollEnabled = true
+        
     }
     
     func initVIew() {
@@ -503,49 +494,8 @@ class SlideDownloadVC : UIViewController {
             //  self.toCreateToast("unable to retrive")
         }
         
-        if type == MasterInfo.slides {
-            arrayOfAllSlideObjects.removeAll()
-        } 
-        
-        if type == MasterInfo.slides {
-            for dictionary in localParamArr {
-                if let jsonData = try? JSONSerialization.data(withJSONObject: dictionary),
-                   let model = try? JSONDecoder().decode(SlidesModel.self , from: jsonData) {
-                    model.uuid = UUID()
-                    arrayOfAllSlideObjects.append(model)
-
-                } else {
-                    print("Failed to decode dictionary into YourModel")
-                }
-            }
-            //  self.toSetTableVIewDataSource()
-        } else {
-          
-            CoreDataManager.shared.removeAllSlideBrands()
-            localParamArr.enumerated().forEach { index, dictionary in
-                if let jsonData = try? JSONSerialization.data(withJSONObject: dictionary),
-                   let model = try? JSONDecoder().decode(BrandSlidesModel.self , from: jsonData) {
-                    model.uuid = UUID()
-              
-                    CoreDataManager.shared.saveBrandSlidesToCoreData(savedBrandSlides: model) { isInstanceSaved in
-                        if isInstanceSaved {
-                            print("Saved BrandSlidesModel sucessfully to core data")
-                            
-                        } else {
-                            print("Error saving  BrandSlidesModel to core data")
-                        }
-                    }
-                } else {
-                    print("Failed to decode dictionary into YourModel")
-                }
-                
-            }
-        
-        }
-        
-        
         if type == .slides {
-            let isNewSlideExists = toCheckExistenceOfNewSlides()
+         //   let isNewSlideExists = toCheckExistenceOfNewSlides()
             if isNewSlideExists {
                 LocalStorage.shared.setBool(LocalStorage.LocalValue.isSlidesLoaded, value: false)
                 toSetTableVIewDataSource()
@@ -566,62 +516,11 @@ class SlideDownloadVC : UIViewController {
         
     }
     
-    
-    func toCheckExistenceOfNewSlides() -> Bool {
-        let existingCDSlides: [SlidesModel] = CoreDataManager.shared.retriveSavedSlides()
-        
-        let apiFetchedSlide: [SlidesModel] = self.arrayOfAllSlideObjects
-
-        // Extract slideId values from each array
-        let existingSlideIds = Set(existingCDSlides.map { $0.slideId })
-        
-     //   _ = Set(apiFetchedSlide.map { $0.slideId })
-
-        // Filter apiFetchedSlide to get slides with slideIds not present in existingCDSlides
-        let nonExistingSlides = apiFetchedSlide.filter { !existingSlideIds.contains($0.slideId) }
-
-
-
-        // Now, nonExistingSlides contains the slides that exist in apiFetchedSlide but not in existingCDSlides based on slideId
-        self.arrayOfAllSlideObjects.removeAll()
-           self.arrayOfAllSlideObjects.append(contentsOf: existingCDSlides)
-           self.arrayOfAllSlideObjects.append(contentsOf: nonExistingSlides)
-        let downloadedArr = self.arrayOfAllSlideObjects.filter { $0.isDownloadCompleted }
-
-        self.countLbl.text = "\(downloadedArr.count)/\( self.arrayOfAllSlideObjects .count)"
-
-        return !nonExistingSlides.isEmpty
-        
-    }
-    
-    private func updateSlideObjects(existingSlides: [SlidesModel], nonExistingSlides: [SlidesModel]) {
-        // Create a set of slideIds from existingSlides
-        var existingSlideDict = Dictionary(uniqueKeysWithValues: existingSlides.map { ($0.slideId, $0) })
-        
-        // Filter nonExistingSlides to include only those slides whose slideId is in existingSlides
-        let existingSlideIds = Set(existingSlides.map { $0.slideId })
-        
-        let commonSlides = nonExistingSlides.filter { existingSlideIds.contains($0.slideId) }
-        
-        // If no common slides are found, consider all nonExistingSlides
-        let slidesToAdd = commonSlides.isEmpty ? nonExistingSlides : commonSlides
-        
-        // Update existingSlides with slides from slidesToAdd (replacing slides with same slideId)
-        for slide in slidesToAdd {
-            existingSlideDict[slide.slideId] = slide
-        }
-        
-        // Clear the array and append unique slides (i.e., existing slides + updated slidesToAdd)
-        arrayOfAllSlideObjects.removeAll()
-        
-        arrayOfAllSlideObjects.append(contentsOf: slidesToAdd)
-    }
-    
     func togroupSlides(completion: @escaping () -> ()) {
         self.closeHolderView.isHidden = false
         self.delegate?.didDownloadCompleted()
-        completion()
         self.countLbl.text = "Download completed.."
+        completion()
     }
 
 
@@ -639,9 +538,12 @@ class SlideDownloadVC : UIViewController {
         //!self.isDownloading
         guard index >= 0, index < items.count else {
             
-
+            Shared.instance.isSlideDownloading = false
+            isDownloadingInProgress = false
+            self.tableView.isUserInteractionEnabled = true
             self.togroupSlides() {
-             
+                let downloadedArr = self.arrayOfAllSlideObjects.filter { $0.isDownloadCompleted }
+                self.countLbl.text = "\(downloadedArr.count)/\( self.arrayOfAllSlideObjects .count)"
             }
             return
         }
@@ -740,9 +642,7 @@ class SlideDownloadVC : UIViewController {
 
             return groupedBrandModel
         }
-        groupedBrandsSlideModels =  groupedBrandsSlideModels.sorted { brandSlide1, brandSlide2 in
-            brandSlide1.priority < brandSlide2.priority
-        }
+
         processBrandsSlideModels(groupedBrandsSlideModels: groupedBrandsSlideModels, index: 0) { _ in
             completion(true)
         }

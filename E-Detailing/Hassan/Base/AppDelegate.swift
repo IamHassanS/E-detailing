@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     var window: UIWindow?
-
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -30,32 +30,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(GooglePlacesApiKey)
         IQKeyboardManager.shared.enable = true
         addObservers()
-      //  if LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isTimeZoneChanged) {
-         //   makeSplashView(isFirstTime: true, isTimeZoneChanged: true)
-       // } else {
-            makeSplashView(isFirstTime: true)
-       // }
-     
+        //  if LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isTimeZoneChanged) {
+        //   makeSplashView(isFirstTime: true, isTimeZoneChanged: true)
+        // } else {
+        makeSplashView(isFirstTime: true)
+        // }
+        
         return true
     }
-
+    
     
     func addObservers() {
-       // NotificationCenter.default.addObserver(self, selector: #selector(timeZoneChanged), name: UIApplication.significantTimeChangeNotification, object: nil)
+        // NotificationCenter.default.addObserver(self, selector: #selector(timeZoneChanged), name: UIApplication.significantTimeChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(networkModified(_:)) , name: NSNotification.Name("connectionChanged"), object: nil)
     }
     
-//    func applicationWillEnterForeground(_ application: UIApplication) {
-//     
-//        if LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isTimeZoneChanged) {
-//            self.makeSplashView(isFirstTime: true, isTimeZoneChanged: true)
-//        } 
-//    
-//    }
+    //    func applicationWillEnterForeground(_ application: UIApplication) {
+    //
+    //        if LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isTimeZoneChanged) {
+    //            self.makeSplashView(isFirstTime: true, isTimeZoneChanged: true)
+    //        }
+    //
+    //    }
     
-//    @objc func timeZoneChanged() {
-//        makeSplashView(isFirstTime: true)
-//    }
+    //    @objc func timeZoneChanged() {
+    //        makeSplashView(isFirstTime: true)
+    //    }
     
     func makeSplashView(isFirstTime:Bool, isTimeZoneChanged: Bool? = false)
     {
@@ -85,13 +85,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
             case .wifi, .cellular:
                 LocalStorage.shared.setBool(LocalStorage.LocalValue.isConnectedToNetwork, value: true)
-            
+                
             }
-        
+            
         }
-
+        
         network.isUnreachable() { reachability in
-         
+            
             
             switch reachability.reachability.connection {
                 
@@ -100,11 +100,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
             case .wifi, .cellular:
                 LocalStorage.shared.setBool(LocalStorage.LocalValue.isConnectedToNetwork, value: true)
-             
+                
                 
             }
             
-          
+            
             
         }
         
@@ -159,20 +159,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - Core Data stack
-
+    
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
-        */
+         */
         let container = NSPersistentContainer(name: "E-Detailing")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+                
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -186,25 +186,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-
-    // MARK: - Core Data Saving support
-
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
+    
+    
 }
-
-
 
 extension AppDelegate: splashVCDelegate {
     func setupControllers() {

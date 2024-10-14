@@ -22,7 +22,8 @@ class CoreDataManager {
     // var savedSlides : [SlidesCDModel]?
    //  var savedGroupedSlides : [GroupedBrandsSlideCDModel]?
     // var savedCDpresentations:[SavedCDPresentation]?
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = DBManager.shared.managedContext()
+    //(UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     // MARK: - functionalities for presentation flow
     

@@ -2239,7 +2239,9 @@ class SpecifiedMenuView: BaseView {
        case .clusterInfo:
            searchTF.placeholder = "Search Cluster name"
            bottomHolderHeight.constant = 0
-           self.clusterArr = DBManager.shared.getTerritory(mapID: LocalStorage.shared.getString(key: LocalStorage.LocalValue.selectedRSFID))
+      
+           let mapID = specifiedMenuVC.clusterMapID == "" ? LocalStorage.shared.getString(key: LocalStorage.LocalValue.selectedRSFID) :  specifiedMenuVC.clusterMapID
+           self.clusterArr = DBManager.shared.getTerritory(mapID: mapID)
            
        case .leave:
            titleLbl.text = "Select leave type"

@@ -27,7 +27,7 @@ class  HomeViewModal: BaseViewModel {
                 dump(json)
             }).responseFailure({ (error) in
                 print(error.description)
-                result(.failure(HomeError.invalidUrl))
+                result(.failure(HomeError.unableConnect))
                 //Shared.instance.removeLoaderInWindow()
             })
     }

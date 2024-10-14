@@ -106,6 +106,8 @@
 		3845556F2BA9C87F00F6CE1A /* ProductsInfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3845556D2BA9C87F00F6CE1A /* ProductsInfoHeader.swift */; };
 		384555702BA9C87F00F6CE1A /* ProductsInfoHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3845556E2BA9C87F00F6CE1A /* ProductsInfoHeader.xib */; };
 		384A58EA2BF5CC92009628F5 /* Viewcontroller + Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384A58E92BF5CC92009628F5 /* Viewcontroller + Ex.swift */; };
+		384A686F2CB26B1E0086F31A /* DBManager + Tourplan Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384A686E2CB26B070086F31A /* DBManager + Tourplan Ex.swift */; };
+		384A68722CB26BE40086F31A /* DBManager + HQ Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384A68712CB26BC00086F31A /* DBManager + HQ Ex.swift */; };
 		384E399C2BAD60AD0048CE13 /* AddadditionalProductsFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E399A2BAD60AD0048CE13 /* AddadditionalProductsFooter.swift */; };
 		384E399D2BAD60AD0048CE13 /* AddadditionalProductsFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 384E399B2BAD60AD0048CE13 /* AddadditionalProductsFooter.xib */; };
 		384ED2BD2A39F8B900285B02 /* AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384ED2BC2A39F8B900285B02 /* AppDefaults.swift */; };
@@ -563,6 +565,8 @@
 		3845556D2BA9C87F00F6CE1A /* ProductsInfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsInfoHeader.swift; sourceTree = "<group>"; };
 		3845556E2BA9C87F00F6CE1A /* ProductsInfoHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsInfoHeader.xib; sourceTree = "<group>"; };
 		384A58E92BF5CC92009628F5 /* Viewcontroller + Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Viewcontroller + Ex.swift"; sourceTree = "<group>"; };
+		384A686E2CB26B070086F31A /* DBManager + Tourplan Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBManager + Tourplan Ex.swift"; sourceTree = "<group>"; };
+		384A68712CB26BC00086F31A /* DBManager + HQ Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBManager + HQ Ex.swift"; sourceTree = "<group>"; };
 		384E399A2BAD60AD0048CE13 /* AddadditionalProductsFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddadditionalProductsFooter.swift; sourceTree = "<group>"; };
 		384E399B2BAD60AD0048CE13 /* AddadditionalProductsFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddadditionalProductsFooter.xib; sourceTree = "<group>"; };
 		384ED2BC2A39F8B900285B02 /* AppDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefaults.swift; sourceTree = "<group>"; };
@@ -1176,6 +1180,8 @@
 		384A58ED2BF5CD39009628F5 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				384A68712CB26BC00086F31A /* DBManager + HQ Ex.swift */,
+				384A686E2CB26B070086F31A /* DBManager + Tourplan Ex.swift */,
 				38E42B212B67D265001E0F07 /* CoreDataManager.swift */,
 				3813B35D2A20E774006F3B78 /* Model */,
 				384ED2BC2A39F8B900285B02 /* AppDefaults.swift */,
@@ -2286,6 +2292,7 @@
 			files = (
 				380B52072B5A9F5A006E21A9 /* ReachabilityManager.swift in Sources */,
 				3825CFD92BA86F4800217D40 /* PrecallsModel.swift in Sources */,
+				384A686F2CB26B1E0086F31A /* DBManager + Tourplan Ex.swift in Sources */,
 				38F515852AA33E090069FC6B /* RcpaViewModel.swift in Sources */,
 				384E399C2BAD60AD0048CE13 /* AddadditionalProductsFooter.swift in Sources */,
 				38DAADE52B58FFBA00966B33 /* outboxCollapseTVC.swift in Sources */,
@@ -2439,6 +2446,7 @@
 				38CF0DD52A8E57A6000EDD96 /* AdditionalCallViewModel.swift in Sources */,
 				38FAA1692B7F254D00714AA2 /* MyDayPlanModel.swift in Sources */,
 				38D568FD2B3560C6007CB86D /* VisitsCountCVC.swift in Sources */,
+				384A68722CB26BE40086F31A /* DBManager + HQ Ex.swift in Sources */,
 				38F289B42B0CA70200045D4F /* CustomCalenderCell.swift in Sources */,
 				38F72E502A557D8F0051BFEA /* Product + Extension.swift in Sources */,
 				38C7F0DF2A5D630100363E24 /* LeaveType + Extension.swift in Sources */,

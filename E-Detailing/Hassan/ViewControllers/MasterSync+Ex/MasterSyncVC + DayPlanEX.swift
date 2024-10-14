@@ -43,7 +43,7 @@ extension MasterSyncVC: MenuResponseProtocol {
 
             
             
-            let territories = DBManager.shared.getTerritory(mapID:  selectedObject.id ?? "")
+            _ = DBManager.shared.getTerritory(mapID:  selectedObject.id ?? "")
             LocalStorage.shared.setSting(LocalStorage.LocalValue.selectedRSFID, text: selectedObject.id ?? "")
             if LocalStorage.shared.getBool(key: .isConnectedToNetwork)  {
                 //|| territories.isEmpty
@@ -82,7 +82,7 @@ extension MasterSyncVC: MenuResponseProtocol {
                 
                 if territories.isEmpty {
                     if !LocalStorage.shared.getBool(key: .isConnectedToNetwork) {
-                        toSetupAlert(desc: "Clusters not yet synced connect to internet to sync.", istoNavigate: false)
+                        toSetupAlert(desc: "No \(LocalStorage.shared.getString(key: .cluster)) found for selected HQ do try syncing online.", istoNavigate: false)
                         Shared.instance.isFetchingHQ = false
                         return
                     }

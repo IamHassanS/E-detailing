@@ -12,6 +12,7 @@ import CoreLocation
 
 
 class LocationManager: NSObject, CLLocationManagerDelegate{
+    
     typealias LocationCallBack = (_ location: CLLocationCoordinate2D) -> Void
     typealias ReverseLocation = (_ location: String) -> Void
     

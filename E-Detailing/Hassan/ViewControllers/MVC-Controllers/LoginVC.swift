@@ -8,7 +8,6 @@
 //
 
 import Alamofire
-
 import UIKit
 import CoreData
 
@@ -27,6 +26,7 @@ extension LoginVC:UITextFieldDelegate {
             guard let text = textField.text as?  NSString else {return false}
             let updatedText = text.replacingCharacters(in: range, with: string)
             print("New text: \(updatedText)")
+            
             if updatedText.contains(" ") {
                 return false
             }
@@ -61,34 +61,8 @@ extension LoginVC: MediaDownloaderDelegate {
 }
 
 class LoginVC : UIViewController {
+    var newText : String = ""
 
-    
-    
-    
-    func setupui() {
-        txtUserName.delegate = self
-        txtPassWord.delegate = self
-        contentsHolderview.elevate(2)
-        contentsHolderview.layer.cornerRadius = 5
-        lblUserID.setFont(font: .bold(size: .BODY))
-        lblUserID.textColor = .appTextColor
-        lblPassword.setFont(font: .bold(size: .BODY))
-        lblPassword.textColor = .appTextColor
-        lblVersion.setFont(font: .medium(size: .SMALL))
-        lblVersion.textColor = .appLightTextColor
-        lblVersion.text = LocalStorage.shared.getString(key: .AppVersion)
-        txtUserName.font = UIFont(name: "Satoshi-Medium", size: 14)
-        txtPassWord.font = UIFont(name: "Satoshi-Medium", size: 14)
-        lblPoweredBy.setFont(font: .medium(size: .BODY))
-        lblPoweredBy.textColor = .appLightTextColor
-        txtPassWord.isSecureTextEntry = true
-        setEyeimage()
-        PasswordIVHolderView.addTap {
-            self.txtPassWord.isSecureTextEntry =  self.txtPassWord.isSecureTextEntry == true ? false : true
-            self.setEyeimage()
-        }
-
-    }
     @IBOutlet var contentsHolderview: UIView!
     
     @IBOutlet var lblUserID: UILabel!
@@ -124,10 +98,16 @@ class LoginVC : UIViewController {
     }()
 
     
-    class func initWithStory() -> LoginVC {
-        let loginVC : LoginVC = UIStoryboard.Hassan.instantiateViewController()
-
-        return loginVC
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let data = AppDefaults.shared.getConfig()
+        
+        if !isCahcheUser {
+            Pipelines.shared.downloadData(mediaURL:  LocalStorage.shared.getString(key: .AttachmentsURL) + data.config.logoImg, delegate: self)
+        } else {
+         let imageData = LocalStorage.shared.getData(key: LocalStorage.LocalValue.AppIcon)
+            self.imgLogo.image = UIImage(data: imageData)
+        }
     }
     
     override func viewDidLoad() {
@@ -146,19 +126,40 @@ class LoginVC : UIViewController {
               txtUserName.isUserInteractionEnabled = true
           }
         setupui()
-        
-        let data = AppDefaults.shared.getConfig()
+    }
+    
+    class func initWithStory() -> LoginVC {
+        let loginVC : LoginVC = UIStoryboard.Hassan.instantiateViewController()
 
-        if !isCahcheUser {
-            Pipelines.shared.downloadData(mediaURL:  LocalStorage.shared.getString(key: .AttachmentsURL) + data.config.logoImg, delegate: self)
-        } else {
-         let imageData = LocalStorage.shared.getData(key: LocalStorage.LocalValue.AppIcon)
-            self.imgLogo.image = UIImage(data: imageData)
+        return loginVC
+    }
+    
+    func setupui() {
+        txtUserName.delegate = self
+        txtPassWord.delegate = self
+        contentsHolderview.elevate(2)
+        contentsHolderview.layer.cornerRadius = 5
+        lblUserID.setFont(font: .bold(size: .BODY))
+        lblUserID.textColor = .appTextColor
+        lblPassword.setFont(font: .bold(size: .BODY))
+        lblPassword.textColor = .appTextColor
+        lblVersion.setFont(font: .medium(size: .SMALL))
+        lblVersion.textColor = .appLightTextColor
+        lblVersion.text = LocalStorage.shared.getString(key: .AppVersion)
+        txtUserName.font = UIFont(name: "Satoshi-Medium", size: 14)
+        txtPassWord.font = UIFont(name: "Satoshi-Medium", size: 14)
+        lblPoweredBy.setFont(font: .medium(size: .BODY))
+        lblPoweredBy.textColor = .appLightTextColor
+        txtPassWord.isSecureTextEntry = true
+        setEyeimage()
+        PasswordIVHolderView.addTap {
+            self.txtPassWord.isSecureTextEntry =  self.txtPassWord.isSecureTextEntry == true ? false : true
+            self.setEyeimage()
         }
-       
-       
 
     }
+    
+
     
     
     func setEyeimage() {
@@ -540,14 +541,55 @@ class LoginVC : UIViewController {
         }
     }
     
+    func removeArchivedData() {
+        let fileManager = FileManager.default
 
+        // This is the ArchiveURL where the data is stored
+        let archiveURL = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("SentToApprovalModelArr")
+
+        // Check if the file exists
+        if fileManager.fileExists(atPath: archiveURL.path) {
+            do {
+                // Try to remove the file
+                try fileManager.removeItem(at: archiveURL)
+                print("Archived data file deleted successfully.")
+            } catch {
+                // Handle error during deletion
+                print("Failed to delete archived data file: \(error)")
+            }
+        } else {
+            print("File does not exist.")
+        }
+    }
+    
+    func removeTourplanData() {
+        let fileManager = FileManager.default
+
+        // This is the ArchiveURL where the data is stored
+        let archiveURL = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("EachDatePlan")
+
+        // Check if the file exists
+        if fileManager.fileExists(atPath: archiveURL.path) {
+            do {
+                // Try to remove the file
+                try fileManager.removeItem(at: archiveURL)
+                print("Archived data file deleted successfully.")
+            } catch {
+                // Handle error during deletion
+                print("Failed to delete archived data file: \(error)")
+            }
+        } else {
+            print("File does not exist.")
+        }
+    }
     
     
     
     func resetCoreDataStack(delegate: AppDelegate?, completion: @escaping (Bool) -> Void) {
         UserDefaults.resetDefaults()
         Shared.instance.toReset()
-        
+        removeArchivedData()
+        removeTourplanData()
         guard let appDelegate = delegate else {
             completion(false)
             return

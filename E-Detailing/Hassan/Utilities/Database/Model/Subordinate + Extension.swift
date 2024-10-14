@@ -32,20 +32,20 @@ extension Subordinate{
         
         mapId = id1
         
-        if let tPDtData = dictionary["SF_DOB"] as? [String:Any]{
-            let dateEntity = NSEntityDescription.entity(forEntityName: "Efff", in: context)
-            let effItem = Efff(entity: dateEntity!, insertInto: context)
-            effItem.setValues(fromDictionary: tPDtData)
-            sfDob = effItem
-        }
+//        if let tPDtData = dictionary["SF_DOB"] as? [String:Any]{
+//            let dateEntity = NSEntityDescription.entity(forEntityName: "Efff", in: context)
+//            let effItem = Efff(entity: dateEntity!, insertInto: context)
+//            effItem.setValues(fromDictionary: tPDtData)
+//            sfDob = effItem
+//        }
         
         
-        if let tPDtData = dictionary["SF_DOW"] as? [String:Any]{
-            let dateEntity = NSEntityDescription.entity(forEntityName: "Efff", in: context)
-            let effItem = Efff(entity: dateEntity!, insertInto: context)
-            effItem.setValues(fromDictionary: tPDtData)
-            sfDow = effItem
-        }
+//        if let tPDtData = dictionary["SF_DOW"] as? [String:Any]{
+//            let dateEntity = NSEntityDescription.entity(forEntityName: "Efff", in: context)
+//            let effItem = Efff(entity: dateEntity!, insertInto: context)
+//            effItem.setValues(fromDictionary: tPDtData)
+//            sfDow = effItem
+//        }
         
     }
 }

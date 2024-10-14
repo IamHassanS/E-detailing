@@ -117,7 +117,7 @@ class MasterSyncVC : UIViewController {
     var isNewSlideExists: Bool = false
     var isSlideDownloading : Bool = false
     var isAlertShown: Bool = false
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = DBManager.shared.managedContext()
     static let shared = MasterSyncVC()
     var delegate : MasterSyncVCDelegate?
     @IBOutlet weak var tableView: UITableView!
@@ -298,8 +298,12 @@ class MasterSyncVC : UIViewController {
         setHQlbl(isTosetDayplanHQ: false)
         
      
-        
+      
         slideDownloadStatusLbl.addTap {
+            
+            
+            
+            _ = self.toCheckExistenceOfNewSlides(didEncountererror: false)
           //  if  !self.retryVIew.isHidden {
             if self.slideDownloadStatusLbl.text == "slides download inprogress.." || self.isMaterSyncInProgress {
                 self.toCreateToast("Slide download in resume afer master sync.")
@@ -380,7 +384,15 @@ class MasterSyncVC : UIViewController {
                     let savedEntity = hqModelArr.first
                     guard let savedEntity = savedEntity else{
                         
-                        self.lblHqName.text = "Select HQ"
+                        let subordinates = DBManager.shared.getSubordinate()
+                        
+                     //   let asubordinate = subordinates.filter{$0.id == savedEntity.code}
+                        
+                        if !subordinates.isEmpty {
+                            self.fetchedHQObject = subordinates.first
+                            LocalStorage.shared.setSting(LocalStorage.LocalValue.selectedRSFID, text:  subordinates.first?.id ?? "")
+                            self.lblHqName.text = subordinates.first?.name ?? "Select HQ"
+                        }
                         
                         return
                         
@@ -445,8 +457,15 @@ class MasterSyncVC : UIViewController {
                 let savedEntity = hqModelArr.first
                 guard let savedEntity = savedEntity else{
                     
-                    self.lblHqName.text = "Select HQ"
+                    let subordinates = DBManager.shared.getSubordinate()
                     
+                 //   let asubordinate = subordinates.filter{$0.id == savedEntity.code}
+                    
+                    if !subordinates.isEmpty {
+                        self.fetchedHQObject = subordinates.first
+                        LocalStorage.shared.setSting(LocalStorage.LocalValue.selectedRSFID, text:  subordinates.first?.id ?? "")
+                        self.lblHqName.text = subordinates.first?.name ?? "Select HQ"
+                    }
                     return
                     
                 }
@@ -763,7 +782,8 @@ class MasterSyncVC : UIViewController {
 
     
     
-    func fetchmasterData(type : MasterInfo, istoNavigate: Bool? = false, completion: @escaping (Bool) -> ()) {
+    func
+    fetchmasterData(type : MasterInfo, istoNavigate: Bool? = false, completion: @escaping (Bool) -> ()) {
         
         
         switch type {
@@ -895,13 +915,10 @@ class MasterSyncVC : UIViewController {
                                     
                                     let subordinateArr =  DBManager.shared.getSubordinate()
                                     let filteredHQ = subordinateArr.first
-                                    //.filter {$0.mapId == LocalStorage.shared.getString(key: LocalStorage.LocalValue.selectedRSFID)}
-                                    // if !filteredHQ.isEmpty {
-                                    
                                     let cacheHQ = filteredHQ
                                     welf.fetchedHQObject = cacheHQ
                                     welf.setHQlbl(isTosetDayplanHQ: true)
-                                    // }
+
                                     NotificationCenter.default.post(name: NSNotification.Name("daplanRefreshed"), object: nil)
                                     completion(true)
                               
@@ -934,13 +951,12 @@ class MasterSyncVC : UIViewController {
                             completion(false)
                             return }
                         let apiResponse = ObjectFormatter.shared.convertDataToJsonArr(data: data)
-                        //let apiResponse = try JSONSerialization.jsonObject(with: response.data! ,options: JSONSerialization.ReadingOptions.allowFragments)
                         print(apiResponse ?? "Its not proper response")
                     guard let apiResponse = apiResponse else {
                         completion(false)
                         return}
                        
-                            DBManager.shared.saveMasterData(type: type, Values: apiResponse,id: welf.getRSF ?? "")
+                          //  DBManager.shared.saveMasterData(type: type, Values: apiResponse,id: welf.getRSF ?? "")
                             if type == MasterInfo.slides || type == MasterInfo.slideBrand {
                               //  welf.loadedSlideInfo.append(type)
                                 switch type {
@@ -956,6 +972,38 @@ class MasterSyncVC : UIViewController {
                                 case MasterInfo.slideBrand:
                                     
                                     LocalStorage.shared.setData(LocalStorage.LocalValue.BrandSlideResponse, data: response.data!)
+                                    
+                                    let paramData =  LocalStorage.shared.getData(key: LocalStorage.LocalValue.BrandSlideResponse)
+            
+                                    var localParamArr = [[String:  Any]]()
+                                    do {
+                                        localParamArr  = try JSONSerialization.jsonObject(with: paramData, options: []) as?  [[String:  Any]] ??  [[String:  Any]]()
+                                        dump(localParamArr)
+                                        
+                                    } catch {
+                                        //  self.toCreateToast("unable to retrive")
+                                    }
+                                    
+                                    CoreDataManager.shared.removeAllSlideBrands()
+                                    
+                                    localParamArr.enumerated().forEach { index, dictionary in
+                                        if let jsonData = try? JSONSerialization.data(withJSONObject: dictionary),
+                                           let model = try? JSONDecoder().decode(BrandSlidesModel.self , from: jsonData) {
+                                            model.uuid = UUID()
+                                            CoreDataManager.shared.saveBrandSlidesToCoreData(savedBrandSlides: model) { isInstanceSaved in
+                                                if isInstanceSaved {
+                                                    print("Saved BrandSlidesModel sucessfully to core data")
+                                                    
+                                                } else {
+                                                    print("Error saving  BrandSlidesModel to core data")
+                                                }
+                                            }
+                                        } else {
+                                            print("Failed to decode dictionary into YourModel")
+                                        }
+                                        
+                                    }
+                                    
                                     
                                    // welf.setLoader(pageType: .navigate, type: .slides)
                                 default:
@@ -1017,7 +1065,8 @@ class MasterSyncVC : UIViewController {
             
         }
             
-         if  type == .slides && istoNavigate {
+        if  type == .slides && istoNavigate {
+             
              setLoader(pageType: .navigate, type: .slides)
         }
 
@@ -1421,6 +1470,12 @@ extension MasterSyncVC : collectionViewProtocols{
                 self.toSetupAlert(desc: "Check your Internet Connection", istoNavigate: false)
                 return
             
+        }
+        
+        
+        if self.masterData[indexPath.row] == .slides {
+            groupSyncAll(UIButton())
+            return
         }
         
         let selectedMasterInfo = masterData[indexPath.row]

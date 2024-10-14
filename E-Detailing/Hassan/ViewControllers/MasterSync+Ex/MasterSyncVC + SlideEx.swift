@@ -30,6 +30,7 @@ extension MasterSyncVC {
             Shared.instance.removeLoaderInWindow()
         case .navigate:
             Shared.instance.removeLoaderInWindow()
+            _ = toCheckExistenceOfNewSlides(didEncountererror: false)
             if isFromLaunch {
                 if (type == .slides || type == .slideBrand) {
  
@@ -40,11 +41,6 @@ extension MasterSyncVC {
                 }
             
             } else  if (type == .slides) {
-            _ = toCheckExistenceOfNewSlides(didEncountererror: false)
-              //  let paramData = LocalStorage.shared.getData(key: LocalStorage.LocalValue.slideResponse)
-              //  let localParamArr = parseParamData(paramData)
-              //  arrayOfAllSlideObjects = decodeSlideObjects(from: localParamArr)
-                removeNonExistingSlides(from: arrayOfAllSlideObjects)
                     if isNewSlideExists {
                         moveToDownloadSlide(isFromcache: true)
                     }
@@ -94,9 +90,8 @@ extension MasterSyncVC {
        
         let notDownloadedSlides = existingCDSlides.filter { !$0.isDownloadCompleted }
 
-        isNewSlideExists = !notDownloadedSlides.isEmpty || !nonExistingSlides.isEmpty
-        
-        
+        isNewSlideExists =  !notDownloadedSlides.isEmpty || !nonExistingSlides.isEmpty
+
         LocalStorage.shared.setBool(LocalStorage.LocalValue.isSlidesDownloadPending, value: isNewSlideExists)
         
         updateSlideObjects(existingSlides: existingCDSlides, nonExistingSlides: nonExistingSlides)
@@ -105,18 +100,22 @@ extension MasterSyncVC {
     }
     
     
-    func removeNonExistingSlides(from apiFetchedSlides: [SlidesModel]) {
+    func removeNonExistingSlides(from apiFetchedSlides: [SlidesModel], completion: @escaping () -> ()) {
         CoreDataManager.shared.fetchSlides { savedCDslides in
             let nonExistingSlidesIds = findNonExistingSlides(in: savedCDslides, from: apiFetchedSlides)
             
             let slidesToRemove = savedCDslides.filter { slide in
                 nonExistingSlidesIds.contains(Int(slide.slideId))
             }
-            removeSlides(slidesToRemove)
+            removeSlides(slidesToRemove) {
+                completion()
+            }
         }
     }
     
-    func removeSlides(_ slides: [SlidesCDModel]) {
+    
+
+    func removeSlides(_ slides: [SlidesCDModel], completion: @escaping () -> ()) {
         let context = context // Ensure context is correctly set up
         
         // Begin a batch operation to handle all deletions
@@ -129,8 +128,10 @@ extension MasterSyncVC {
                 // Save context after all deletions
                 try context.save()
                 print("Successfully removed and saved slides.")
+                completion()
             } catch {
                 print("Failed to remove slides: \(error)")
+                completion()
             }
         }
     }
@@ -251,10 +252,40 @@ extension MasterSyncVC {
         // Filter nonExistingSlides to include only those slides whose slideId is in existingSlides
         let existingSlideIds = Set(existingSlides.map { $0.slideId })
         
-        let commonSlides = nonExistingSlides.filter { existingSlideIds.contains($0.slideId) }
+        let newlyAddedSlidesSlides = nonExistingSlides.filter { !existingSlideIds.contains($0.slideId) }
+        
+        let newlyRemovedSlide = nonExistingSlides.filter { existingSlideIds.contains($0.slideId) }
+        
+        if !newlyRemovedSlide.isEmpty {
+            
+            removeNonExistingSlides(from: newlyRemovedSlide) { [weak self] in
+                
+                let existingCDSlides: [SlidesModel] = CoreDataManager.shared.retriveSavedSlides()
+                
+                var existingSlideDict = existingCDSlides.reduce(into: [Int: SlidesModel]()) { dict, slide in
+                    dict[slide.slideId] = slide
+                }
+                // If no common slides are found, consider all nonExistingSlides
+                let slidesToAdd = newlyAddedSlidesSlides.isEmpty ? nonExistingSlides + existingCDSlides : newlyAddedSlidesSlides
+                
+                // Update existingSlides with slides from slidesToAdd (replacing slides with same slideId)
+                for slide in slidesToAdd {
+                    existingSlideDict[slide.slideId] = slide
+                }
+                
+                // Clear the array and append unique slides (i.e., existing slides + updated slidesToAdd)
+                self?.arrayOfAllSlideObjects.removeAll()
+                
+                self?.arrayOfAllSlideObjects.append(contentsOf: Array(existingSlideDict.values))
+                
+              
+            }
+            return
+        }
+       
         
         // If no common slides are found, consider all nonExistingSlides
-        let slidesToAdd = commonSlides.isEmpty ? nonExistingSlides + existingSlides : commonSlides
+        let slidesToAdd = newlyAddedSlidesSlides.isEmpty ? nonExistingSlides + existingSlides : newlyAddedSlidesSlides
         
         // Update existingSlides with slides from slidesToAdd (replacing slides with same slideId)
         for slide in slidesToAdd {
@@ -322,104 +353,7 @@ extension MasterSyncVC {
         retryVIew.isHidden = true
         downloadingBottomView.isHidden = true
     }
-    
-//    func toCheckExistenceOfNewSlides(didEncountererror: Bool) -> Bool? {
-//        if didEncountererror {
-//            slideDownloadStatusLbl.isHidden  =  false
-//            downloadingBottomView.isHidden =  false
-//            retryVIew.isHidden = false
-//            slideDownloadStatusLbl.text = "Tap to retry slide download"
-//            return false
-//        }
-//        let paramData = LocalStorage.shared.getData(key: LocalStorage.LocalValue.slideResponse)
-//        var localParamArr = [[String:  Any]]()
-//        do {
-//            localParamArr  = try JSONSerialization.jsonObject(with: paramData, options: []) as?  [[String:  Any]] ??  [[String:  Any]]()
-//            dump(localParamArr)
-//        } catch {
-//            //  self.toCreateToast("unable to retrive")
-//        }
-//        arrayOfAllSlideObjects.removeAll()
-//        for dictionary in localParamArr {
-//            if let jsonData = try? JSONSerialization.data(withJSONObject: dictionary),
-//               let model = try? JSONDecoder().decode(SlidesModel.self , from: jsonData) {
-//                model.uuid = UUID()
-//                arrayOfAllSlideObjects.append(model)
-//                
-//                
-//            } else {
-//                print("Failed to decode dictionary into YourModel")
-//            }
-//        }
-//        let existingCDSlides: [SlidesModel] = CoreDataManager.shared.retriveSavedSlides()
-//        
-//        if self.arrayOfAllSlideObjects.isEmpty {
-//            self.arrayOfAllSlideObjects.append(contentsOf: existingCDSlides)
-//        }
-//        let apiFetchedSlide: [SlidesModel] = self.arrayOfAllSlideObjects
-//        // Extract slideId values from each array
-//        let existingSlideIds = Set(existingCDSlides.map { $0.slideId })
-//
-//        // Filter apiFetchedSlide to get slides with slideIds not present in existingCDSlides
-//        let nonExistingSlides = apiFetchedSlide.filter { !existingSlideIds.contains($0.slideId) }
-//
-//        let notDownloadedSlides = existingCDSlides.filter { !$0.isDownloadCompleted }
-//        
-//        isNewSlideExists = !notDownloadedSlides.isEmpty || !nonExistingSlides.isEmpty
-//        
-//        
-//        // Now, nonExistingSlides contains the slides that exist in apiFetchedSlide but not in existingCDSlides based on slideId
-//        self.arrayOfAllSlideObjects.removeAll()
-//        self.arrayOfAllSlideObjects.append(contentsOf: existingCDSlides)
-//        self.arrayOfAllSlideObjects.append(contentsOf: nonExistingSlides)
-//        
-//        
-//        if LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isSlidesDownloadPending) || isNewSlideExists {
-//            slideDownloadStatusLbl.text = "Tap to retry slide download"
-//            retryVIew.isHidden = false
-//            return true
-//        }
-//        
-//        
-//        if !LocalStorage.shared.getBool(key: .isSlidesLoaded) ||  !LocalStorage.shared.getBool(key: .isSlidesGrouped) {
-//        
-//            if nonExistingSlides.isEmpty {
-//                slideDownloadStatusLbl.isHidden = false
-//                retryVIew.isHidden = true
-//                downloadingBottomView.isHidden = false
-//                slideDownloadStatusLbl.text = "View slides"
-//                return false
-//            } else {
-//                slideDownloadStatusLbl.text = "Tap to retry slide download"
-//                retryVIew.isHidden = false
-//                return true
-//            }
-//        } else if !nonExistingSlides.isEmpty {
-//            slideDownloadStatusLbl.isHidden  =  false
-//            downloadingBottomView.isHidden =  false
-//            if Shared.instance.isSlideDownloading  {
-//                slideDownloadStatusLbl.text = "slides download in progress.."
-//                retryVIew.isHidden = true
-//                
-//            } else if isfromHome   {
-//                slideDownloadStatusLbl.text = "Tap to retry slide download"
-//                retryVIew.isHidden = false
-//            } else {
-//                slideDownloadStatusLbl.isHidden = true
-//                retryVIew.isHidden = true
-//                downloadingBottomView.isHidden = true
-//            }
-//            return !nonExistingSlides.isEmpty
-//        } else {
-//            slideDownloadStatusLbl.isHidden = false
-//            retryVIew.isHidden = true
-//            downloadingBottomView.isHidden = false
-//            slideDownloadStatusLbl.text = "View slides"
-//        }
-//       //let downloadedArr = self.arrayOfAllSlideObjects.filter { $0.isDownloadCompleted }
-//       
-//        return false
-//    }
+
     
     func moveToDownloadSlide(isFromcache: Bool? = false, isDownloadPending: Bool? = false) {
         downloadAlertSet = false
@@ -427,18 +361,28 @@ extension MasterSyncVC {
         let vc = SlideDownloadVC.initWithStory(viewmodel: self.mastersyncVM ?? MasterSyncVM())
         vc.isFromlaunch = isFromLaunch
         if isFromcache ?? false{
-            vc.arrayOfAllSlideObjects = self.arrayOfAllSlideObjects
+            vc.arrayOfAllSlideObjects =   arrayOfAllSlideObjects.sorted { slide1, slide2 in
+                slide1.filePath.capitalized < slide2.filePath.capitalized
+            }
         }
       
        else if LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isSlidesDownloadPending) {
-            vc.arrayOfAllSlideObjects = self.arrayOfAllSlideObjects
+           vc.arrayOfAllSlideObjects =   arrayOfAllSlideObjects.sorted { slide1, slide2 in
+               slide1.filePath.capitalized < slide2.filePath.capitalized
+           }
        } else if LocalStorage.shared.getBool(key: LocalStorage.LocalValue.isSlidesGrouped) {
-           vc.arrayOfAllSlideObjects = self.arrayOfAllSlideObjects
+           
+           
+      // vc.arrayOfAllSlideObjects = self.arrayOfAllSlideObjects
+           
+           vc.arrayOfAllSlideObjects =   arrayOfAllSlideObjects.sorted { slide1, slide2 in
+               slide1.filePath.capitalized < slide2.filePath.capitalized
+           }
        }
-        
+        vc.isNewSlideExists = self.isNewSlideExists
         vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
-        self.present(vc, animated: true)
+        self.present(vc, animated: false)
     }
 }
 

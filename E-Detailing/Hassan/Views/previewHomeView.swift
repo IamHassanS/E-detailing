@@ -56,7 +56,7 @@ extension PreviewHomeView: MenuResponseProtocol {
             dump(fetchedObject?.mappProducts)
             let docName = fetchedObject?.name ?? ""
             let docSpeciality = fetchedObject?.speciality ?? ""
-            var valArr = [docName, docSpeciality].filter { !$0.isEmpty } .joined(separator: " - ")
+            let valArr = [docName, docSpeciality].filter { !$0.isEmpty } .joined(separator: " - ")
             self.selectDoctorsLbl.text =  valArr
             //docName + " - \(docSpeciality)"
             let mapProd = fetchedObject?.mappProducts ?? ""

@@ -14,6 +14,19 @@ class ReportsVM {
     case unableConnect = "An issue occured data will be saved to device"
     }
     
+    
+    func getNewReportsData(params: JSON, api : APIEnums, paramData: JSON, _ result : @escaping (Result<[ReportsModel],ReportsError>) -> Void) {
+        ConnectionHandler.shared.uploadRequest(for: api, params: params, data: paramData)
+            .responseDecode(to: [ReportsModel].self, { (json) in
+            result(.success(json))
+            dump(json)
+        }).responseFailure({ (error) in
+            print(error.description)
+            result(.failure(ReportsError.unableConnect))
+        })
+    }
+    
+    
     func getReportsData(params: JSON, api : APIEnums, paramData: JSON, _ result : @escaping (Result<[ReportsModel],ReportsError>) -> Void) {
         ConnectionHandler.shared.uploadRequest(for: api, params: params, data: paramData)
             .responseDecode(to: [ReportsModel].self, { (json) in

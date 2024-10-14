@@ -2135,6 +2135,7 @@ extension MainVC {
                 case .failure(let error):
                   //  Shared.instance.removeLoaderInWindow()
                     welf.toCreateToast("\(error)")
+                    welf.showAlert(desc: "Request time out")
                 }
             }
             
@@ -3153,10 +3154,12 @@ extension MainVC: MenuResponseProtocol {
                 
                 if territories.isEmpty {
                     if !LocalStorage.shared.getBool(key: .isConnectedToNetwork) {
-                        showAlertToFilldates(description: "Clusters not yet synced connect to internet to sync.")
+                        showAlertToFilldates(description: "No \(LocalStorage.shared.getString(key: .cluster)) found for selected HQ do try syncing online.")
                         return
                     }
                 }
+                
+               
                 
                 if  self.fetchedHQObject1 == nil {
                     self.fetchedHQObject1 = selectedObject as? Subordinate
@@ -3170,6 +3173,7 @@ extension MainVC: MenuResponseProtocol {
                     if !(self.sessions?[selectedSessionIndex ?? 0].isRetrived ?? false) {
                         sessions?[selectedSessionIndex ?? 0].cluster = [temporaryselectedClusterobj]
                         //self.sessions?[selectedSessionIndex].cluster =
+                        fetchedClusterObject1 = nil
                         
                     }
                     
@@ -3242,7 +3246,7 @@ extension MainVC: MenuResponseProtocol {
                     
                     if !(self.sessions?[selectedSessionIndex ?? 0].isRetrived ?? false) {
                         sessions?[selectedSessionIndex ?? 0].cluster = [temporaryselectedClusterobj]
-                        //self.sessions?[selectedSessionIndex].cluster =
+                        fetchedClusterObject1 = nil
                     }
                     
                 } else {

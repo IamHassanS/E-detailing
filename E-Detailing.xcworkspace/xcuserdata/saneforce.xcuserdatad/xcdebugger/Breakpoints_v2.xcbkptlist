@@ -3,4 +3,130 @@
    uuid = "26FA0E03-6CD2-498F-B4C6-726B0794CC37"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "05042A9D-1451-47FC-94B1-5287584F7D1A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "E-Detailing/Hassan/ViewControllers/MVC-Controllers/MasterSyncVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "884"
+            endingLineNumber = "884"
+            landmarkName = "fetchmasterData(type:istoNavigate:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DDB28B8C-EC4A-4044-8469-3A91599AEDC9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "E-Detailing/Hassan/ViewControllers/MVC-Controllers/MasterSyncVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "877"
+            endingLineNumber = "877"
+            landmarkName = "fetchmasterData(type:istoNavigate:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DDB28B8C-EC4A-4044-8469-3A91599AEDC9 - 5e91c1db89033cca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;SAN_ZEN.MyDayPlanResponseModel&gt;, SAN_ZEN.MasterSyncErrors&gt;) -&gt; () in closure #3 (Swift.Bool) -&gt; () in SAN_ZEN.MasterSyncVC.fetchmasterData(type: SAN_ZEN.MasterInfo, istoNavigate: Swift.Optional&lt;Swift.Bool&gt;, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "SAN ZEN.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saneforce/Desktop/Native-Pharma-iOS-SANCLM/E-Detailing/Hassan/ViewControllers/MVC-Controllers/MasterSyncVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "877"
+                  endingLineNumber = "877">
+               </Location>
+               <Location
+                  uuid = "DDB28B8C-EC4A-4044-8469-3A91599AEDC9 - 64eca8b2dd0a5ba5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in closure #1 (Swift.Result&lt;Swift.Array&lt;SAN_ZEN.MyDayPlanResponseModel&gt;, SAN_ZEN.MasterSyncErrors&gt;) -&gt; () in closure #3 (Swift.Bool) -&gt; () in SAN_ZEN.MasterSyncVC.fetchmasterData(type: SAN_ZEN.MasterInfo, istoNavigate: Swift.Optional&lt;Swift.Bool&gt;, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "SAN ZEN.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saneforce/Desktop/Native-Pharma-iOS-SANCLM/E-Detailing/Hassan/ViewControllers/MVC-Controllers/MasterSyncVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "845"
+                  endingLineNumber = "845">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2545A979-0E46-4022-94D0-76DB12A8C030"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "E-Detailing/Hassan/Utilities/Database/DBManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "saveMasterData(type:Values:id:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2545A979-0E46-4022-94D0-76DB12A8C030 - d0ef7b9c69596600"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () -&gt; () in SAN_ZEN.DBManager.saveMasterData(type: SAN_ZEN.MasterInfo, Values: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, id: Swift.String) -&gt; ()"
+                  moduleName = "SAN ZEN.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saneforce/Desktop/Native-Pharma-iOS-SANCLM/E-Detailing/Hassan/Utilities/Database/DBManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "133"
+                  endingLineNumber = "133">
+               </Location>
+               <Location
+                  uuid = "2545A979-0E46-4022-94D0-76DB12A8C030 - 8397f80e97099100"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 @Sendable () -&gt; () in SAN_ZEN.DBManager.saveMasterData(type: SAN_ZEN.MasterInfo, Values: Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, id: Swift.String) -&gt; ()"
+                  moduleName = "SAN ZEN.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/saneforce/Desktop/Native-Pharma-iOS-SANCLM/E-Detailing/Hassan/Utilities/Database/DBManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "133"
+                  endingLineNumber = "133">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5AD4B6CA-0BFE-4195-B1F2-858E1B633F5A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "E-Detailing/Hassan/ViewModels/MasterSyncVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "fetchMasterData(type:sfCode:istoUpdateDCRlist:mapID:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
